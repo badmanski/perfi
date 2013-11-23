@@ -33,6 +33,9 @@ group :development do
 end
 
 group :test, :development do
+  gem 'rspec-rails', '~> 2.13.1'
+  gem 'capybara', '~> 2.1.0'
+  gem 'machinist', '~> 2.0.0'
   gem 'pry', '~> 0.9.12.1'
   gem 'pry-remote'
   gem 'awesome_print'
