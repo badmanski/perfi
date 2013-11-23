@@ -29,6 +29,9 @@ group :development do
   gem 'binding_of_caller'
   gem 'quiet_assets'
   gem 'brakeman'
+  gem 'guard-rubocop'
+  gem 'guard-rspec'
+  gem 'guard-brakeman'
   gem 'capistrano'
 end
 

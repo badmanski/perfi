@@ -1,0 +1,17 @@
+AllCops:
+  Includes:
+    - config.ru
+  Excludes:
+    - db/**
+    - db/schema.rb
+    - config/**
+    - config/initializers/secret_token.rb
+    - test/test_helper.rb
+    - script/**
+    - Rakefile
+
+Documentation:
+  Enabled: false
+
+StringLiterals:
+  Enabled: false
