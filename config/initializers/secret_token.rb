@@ -9,4 +9,9 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Finance::Application.config.secret_key_base = '9027a3ae969accd535166d51d3df9b757b2ae5a39e90362f2696ec132ea169c889cac8e22ed084b51893ca32ad20d9d1d73ca6b3512235d113afc82e9f7c3180'
+
+if Rails.env.production? && ENV['SECRET_TOKEN'].blank?
+  raise 'SECRET_TOKEN environment variable must be set!'
+end
+
+Finance::Application.config.secret_key_base = ENV['SECRET_TOKEN'] || '9rR9VsLPmBryD4pdS7G667Q8f327uOHVQg84bp5dC869h'
