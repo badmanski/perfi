@@ -14,10 +14,23 @@ module Finance
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
+    config.time_zone = 'Tallinn'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    config.generators do |g|
+      g.fixture_replacement :machinist
+      g.helper false
+      g.jbuilder false
+      g.stylesheets false
+      g.javascripts false
+      g.test_framework :rspec,
+        controller_specs: false,
+        view_specs: false,
+        routing_specs: false,
+        helper_specs: false
+    end
   end
 end
