@@ -1,4 +1,7 @@
 en:
+  user:
+    one: User
+    other: Users
   name: Name
   email: Email
   admin: Admin
