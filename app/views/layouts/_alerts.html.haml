@@ -1,0 +1,16 @@
+- if flash[:notice]
+  .alert.alert-info.fade.in
+    = flash[:notice]
+    .close{ data: {dismiss: "alert" }} &times;
+- if flash[:error]
+  .alert.alert-danger.fade.in
+    = flash[:error]
+    .close{ data: {dismiss: "alert" }} &times;
+- if flash[:success]
+  .alert.alert-success.fade.in
+    = flash[:success]
+    .close{ data: {dismiss: "alert" }} &times;
+- if flash[:alert]
+  .alert.alert-warning.fade.in
+    = flash[:alert]
+    .close{ data: {dismiss: "alert" }} &times;

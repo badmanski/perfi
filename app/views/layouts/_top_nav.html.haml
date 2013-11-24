@@ -1,0 +1,12 @@
+%nav.navbar.navbar-inverse.navbar-static-top
+  .navbar-header
+    %button.navbar-toggle{'data-toggle' => 'collapse', 'data-target' => '.navbar-collapse'}
+      %span.sr-only= t(:toggle_navigation)
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    = link_to 'Finance planner', root_path, class: 'navbar-brand'
+
+  .collapse.navbar-collapse
+    %ul.nav.navbar-nav
+      %li#nav-users= link_to 'Users', root_path
