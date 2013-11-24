@@ -1,0 +1,11 @@
+%table.table.table-hover
+  %tr
+    %th= t(:name)
+    %th= t(:email)
+    %th= t(:admin)
+
+  - @users.each do |user|
+    %tr
+      %td= link_to user.name, user
+      %td= user.email
+      %td= check_box_tag nil, nil, user.admin, disabled: true

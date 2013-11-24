@@ -1,9 +1,9 @@
 require 'machinist/active_record'
 
-# Add your blueprints here.
-#
-# e.g.
-#   Post.blueprint do
-#     title { "Post #{sn}" }
-#     body  { "Lorem ipsum..." }
-#   end
+User.blueprint do
+  name { "User #{sn}" }
+  email { "user#{sn}@domain.com" }
+  password { "password" }
+  password_confirmation { "password" }
+  admin { false }
+end
