@@ -1,4 +1,10 @@
 en:
+  login_successful: "Welcome, %{user}!"
+  logout_successful: "Logout successful!"
+  login_failed: Log in failed!
+  please_login: Please log in
+  login: Log in
+
   user:
     one: User
     other: Users
