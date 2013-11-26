@@ -10,3 +10,5 @@
   .collapse.navbar-collapse
     %ul.nav.navbar-nav
       %li#nav-users= link_to t(:user, count: 2), users_path
+    %ul.nav.navbar-nav.navbar-right
+      %li= link_to t(:logout), logout_path, method: 'delete'
