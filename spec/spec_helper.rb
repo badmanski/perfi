@@ -52,3 +52,12 @@ end
 def ensure_has(*contents)
   contents.each { |c| expect(page).to have_content c }
 end
+
+def login(user)
+  visit login_path
+  within 'form' do
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: 'password'
+    click_button 'Log in'
+  end
+end
