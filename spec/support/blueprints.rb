@@ -7,3 +7,7 @@ User.blueprint do
   password_confirmation { "password" }
   admin { false }
 end
+
+PeriodType.blueprint do
+  name { 'Month' }
+end
