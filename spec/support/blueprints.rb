@@ -11,3 +11,7 @@ end
 PeriodType.blueprint do
   name { 'Month' }
 end
+
+Period.blueprint do
+  # Attributes here
+end
