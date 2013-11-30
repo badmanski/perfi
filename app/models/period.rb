@@ -6,7 +6,7 @@ class Period < ActiveRecord::Base
   validates :name, :start_date, :end_date, :period_type_id, :user_id,
             presence: true
 
-  before_validation :set_start_date, :set_end_date, :set_name
+  before_validation :set_attrs
 
   def type
     period_type
@@ -24,5 +24,11 @@ class Period < ActiveRecord::Base
 
   def set_name
     self.name = "#{I18n.l(start_date)} - #{I18n.l(end_date)}"
+  end
+
+  def set_attrs
+    set_start_date
+    set_end_date
+    set_name
   end
 end
