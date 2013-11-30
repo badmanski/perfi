@@ -4,6 +4,11 @@ en:
   login_failed: Log in failed!
   please_login: Please log in
   login: Log in
+  logout: Log out
+  signup: Sign up
+  register: Register
+  profile: Profile
+  update_profile: Update Profile
 
   user:
     one: User
@@ -20,3 +25,8 @@ en:
   date:
     formats:
       default: "%d/%m/%Y"
+
+  unauthorized:
+    manage:
+      all: "You are not authorized to access this page."
+      user: "You are not authorized to access other user accounts."

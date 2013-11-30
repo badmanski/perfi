@@ -8,5 +8,6 @@ Finance::Application.routes.draw do
   resources :users
 
   get 'dashboard', to: 'dashboard#index'
+  match 'signup', to: 'users#new', via: :get
   root to: 'dashboard#index'
 end

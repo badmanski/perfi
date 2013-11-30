@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
 
   add_flash_types :success, :error
 
+  rescue_from CanCan::AccessDenied do |e|
+    redirect_to root_url, error: e.message
+  end
+
   private
 
   def current_user
