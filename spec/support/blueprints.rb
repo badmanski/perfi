@@ -15,3 +15,7 @@ end
 Period.blueprint do
   # Attributes here
 end
+
+EntryType.blueprint do
+  # Attributes here
+end
