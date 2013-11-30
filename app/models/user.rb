@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include SentientUser
+
   has_many :periods, dependent: :destroy
   has_many :entry_types, dependent: :destroy
 

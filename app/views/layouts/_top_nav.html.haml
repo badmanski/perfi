@@ -9,4 +9,13 @@
 
   .collapse.navbar-collapse
     %ul.nav.navbar-nav
-      %li#nav-users= link_to t(:user, count: 2), users_path
+      - if can? :manage, :all
+        %li= link_to t(:user, count: 2), users_path
+      - if current_user
+        %li= link_to t(:profile), user_path(current_user)
+    %ul.nav.navbar-nav.navbar-right
+      - if current_user
+        %li= link_to t(:logout), logout_path, method: 'delete'
+      - else
+        %li= link_to t(:signup), signup_path
+        %li= link_to t(:login), login_path

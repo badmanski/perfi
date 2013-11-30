@@ -13,13 +13,19 @@ PeriodType.blueprint do
 end
 
 Period.blueprint do
-  # Attributes here
+  period_type { PeriodType.make! }
+  user { User.make! }
 end
 
 EntryType.blueprint do
-  # Attributes here
+  name { 'Salary' }
+  amount { 2500 }
+  positive { true }
+  user { User.make! }
 end
 
 Entry.blueprint do
-  # Attributes here
+  amount { 2500 }
+  entry_type { EntryType.make! }
+  period { Period.make! }
 end
