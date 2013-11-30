@@ -1,6 +1,7 @@
 class Period < ActiveRecord::Base
   belongs_to :user
   belongs_to :period_type
+  has_many :entries
 
   validates :name, :start_date, :end_date, :period_type_id, :user_id,
             presence: true

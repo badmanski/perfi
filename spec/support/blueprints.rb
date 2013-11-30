@@ -19,3 +19,7 @@ end
 EntryType.blueprint do
   # Attributes here
 end
+
+Entry.blueprint do
+  # Attributes here
+end
