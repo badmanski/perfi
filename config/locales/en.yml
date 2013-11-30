@@ -16,3 +16,7 @@ en:
 
   edit_user: Edit User
   new_user: New User
+
+  date:
+    formats:
+      default: "%d/%m/%Y"

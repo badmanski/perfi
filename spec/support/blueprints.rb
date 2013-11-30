@@ -7,3 +7,19 @@ User.blueprint do
   password_confirmation { "password" }
   admin { false }
 end
+
+PeriodType.blueprint do
+  name { 'Month' }
+end
+
+Period.blueprint do
+  # Attributes here
+end
+
+EntryType.blueprint do
+  # Attributes here
+end
+
+Entry.blueprint do
+  # Attributes here
+end
