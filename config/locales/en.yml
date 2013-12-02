@@ -8,6 +8,9 @@ en:
   signup: Sign up
   signup_today: Sign up today!
   register: Register
+  edit: Edit
+  delete: Delete
+  sure: Are You sure?
   profile: Profile
   update_profile: Update Profile
   finance_planner: Finance Planner
@@ -25,6 +28,15 @@ en:
 
   edit_user: Edit User
   new_user: New User
+
+  entry_type:
+    one: Entry Type
+    other: Entry Types
+  amount: Amount
+  positive: Positive
+
+  edit_entry_type: Edit Entry Type
+  new_entry_type: New Entry Type
 
   date:
     formats:

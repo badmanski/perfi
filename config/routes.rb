@@ -6,6 +6,7 @@ Finance::Application.routes.draw do
   end
 
   resources :users
+  resources :entry_types, except: :show
 
   get 'dashboard', to: 'dashboard#index'
   match 'signup', to: 'users#new', via: :get

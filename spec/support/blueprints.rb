@@ -18,7 +18,7 @@ Period.blueprint do
 end
 
 EntryType.blueprint do
-  name { 'Salary' }
+  name { "Salary #{sn}" }
   amount { 2500 }
   positive { true }
   user { User.make! }

@@ -1,0 +1,19 @@
+- @entry_type.errors.full_messages.uniq.each do |msg|
+  .alert.alert-danger.fade.in
+    = msg
+    .close{ data: {dismiss: "alert" }} &times;
+
+= form_for @entry_type, html: { class: 'form col-md-6 col-md-offset-3' } do |f|
+  %fieldset
+    %legend= @entry_type.persisted? ? t(:edit_entry_type) : t(:new_entry_type)
+    .form-group
+      = f.label :name, t(:name)
+      = f.text_field :name, placeholder: t(:name), class: 'form-control'
+    .form-group
+      = f.label :amount, t(:amount)
+      = f.number_field :amount, class: 'form-control'
+    .checkbox
+      = f.check_box :positive
+      = t(:positive)
+
+    = f.submit nil, class: 'btn btn-success'
