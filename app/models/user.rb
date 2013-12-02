@@ -8,4 +8,11 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
   has_secure_password
+
+  after_create :set_basic_entry_types
+
+  def set_basic_entry_types
+    EntryType.create(name: 'Other income', positive: true, user_id: id)
+    EntryType.create(name: 'Other expense', positive: false, user_id: id)
+  end
 end
