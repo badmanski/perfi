@@ -8,6 +8,7 @@ class Ability
     else
       can :manage, Period, user_id: user.id
       can :manage, EntryType, user_id: user.id
+      can :manage, Entry, entry_type: { user_id: user.id }
       can [:show, :edit, :update], User, id: user.id
     end
   end
