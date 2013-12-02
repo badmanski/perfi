@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :periods, dependent: :destroy
   has_many :entry_types, dependent: :destroy
+  has_many :entries, through: :entry_types
 
   validates :name, :email, :password, :password_confirmation, presence: true
   validates :email, uniqueness: true

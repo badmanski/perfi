@@ -35,6 +35,18 @@ en:
   amount: Amount
   positive: Positive
 
+  entry:
+    one: Entry
+    other: Entries
+
+  income:
+    one: Income
+    other: Incomes
+
+  expence:
+    one: Expence
+    other: Expences
+
   edit_entry_type: Edit Entry Type
   new_entry_type: New Entry Type
 

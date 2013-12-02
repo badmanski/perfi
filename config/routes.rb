@@ -7,6 +7,9 @@ Finance::Application.routes.draw do
 
   resources :users
   resources :entry_types, except: :show
+  resources :entries,
+            only: [:index, :create, :destroy],
+            defaults: { format: :json }
 
   get 'dashboard', to: 'dashboard#index'
   match 'signup', to: 'users#new', via: :get

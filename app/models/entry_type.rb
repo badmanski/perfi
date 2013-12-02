@@ -10,7 +10,6 @@ class EntryType < ActiveRecord::Base
 
   scope :incomes, -> { where(positive: true) }
   scope :expenses, -> { where(positive: false) }
-  scope :of_user, ->(user_id) { where('user_id = ?', user_id) }
 
   def set_user_id
     self.user_id ||= User.current.try(:id)
