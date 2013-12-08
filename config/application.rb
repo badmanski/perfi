@@ -20,7 +20,12 @@ module Finance
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.assets.precompile += ['login.css']
+    config.assets.precompile += [
+      'login.css',
+      'angular.js',
+      'angular-resource.js',
+      'dashboard.js'
+    ]
 
     config.generators do |g|
       g.fixture_replacement :machinist

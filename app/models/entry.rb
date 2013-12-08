@@ -1,8 +1,7 @@
 class Entry < ActiveRecord::Base
   belongs_to :entry_type
-  belongs_to :period
 
-  validates :name, :amount, :entry_type_id, :period_id, presence: true
+  validates :name, :amount, :entry_type_id, presence: true
 
   delegate :name, to: :type, prefix: true
 

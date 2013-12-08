@@ -1,2 +1,10 @@
 .page-header
   %h1 Dashboard
+.row
+  .col-md-6
+    = render 'incomes'
+
+- content_for :javascript_includes do
+  = javascript_include_tag 'angular'
+  = javascript_include_tag 'angular-resource'
+  = javascript_include_tag 'dashboard'

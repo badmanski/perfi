@@ -27,5 +27,4 @@ end
 Entry.blueprint do
   amount { 2500 }
   entry_type { EntryType.make! }
-  period { Period.make! }
 end

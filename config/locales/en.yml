@@ -13,6 +13,9 @@ en:
   sure: Are You sure?
   profile: Profile
   update_profile: Update Profile
+  type: Type
+  add: Add
+  total: 'Total:'
   finance_planner: Finance Planner
   welcome: Welcome to Finance Planner!
   landing_lead_text: "This is a simple finance planner. Here you can manage your daily incomes and outcomes, access history and have quick overview of your budget. Sign up for free account today and get your money flow under control!"
@@ -43,9 +46,9 @@ en:
     one: Income
     other: Incomes
 
-  expence:
-    one: Expence
-    other: Expences
+  expense:
+    one: Expense
+    other: Expenses
 
   edit_entry_type: Edit Entry Type
   new_entry_type: New Entry Type

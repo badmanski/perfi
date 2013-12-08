@@ -4,7 +4,6 @@ class CreateEntries < ActiveRecord::Migration
       t.string :name
       t.decimal :amount
       t.integer :entry_type_id
-      t.integer :period_id
 
       t.timestamps
     end

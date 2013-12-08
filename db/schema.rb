@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20131130100457) do
     t.string   "name"
     t.decimal  "amount"
     t.integer  "entry_type_id"
-    t.integer  "period_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
