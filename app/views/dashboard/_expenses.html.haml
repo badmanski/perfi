@@ -7,14 +7,18 @@
         %th= t(:name)
         %th= t(:type)
         %th= t(:amount)
-        %tr{ 'ng-repeat' => 'expense in expenses' }
-          %td {{expense.name}}
-          %td {{expense.entry_type_id}}
-          %td {{expense.amount}}
-        %tr
-          %td
-          %td= t(:total)
-          %td.bold {{totalExpense()}}
+        %th
+      %tr{ 'ng-repeat' => 'expense in expenses' }
+        %td {{expense.name}}
+        %td {{expense.entry_type_id}}
+        %td {{expense.amount}}
+        %td
+          .close{ 'ng-click' => 'destroyExpense(expense.id)' } &times;
+      %tr
+        %td
+        %td= t(:total)
+        %td.bold {{totalExpense()}}
+        %td
 %form.form-inline{ 'ng-submit' => 'createExpense()' }
   .form-group
     = text_field_tag nil, nil, placeholder: t(:name), class: 'form-control', 'ng-model' => 'newExpense.name'

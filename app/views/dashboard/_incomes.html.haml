@@ -7,14 +7,18 @@
         %th= t(:name)
         %th= t(:type)
         %th= t(:amount)
-        %tr{ 'ng-repeat' => 'income in incomes' }
-          %td {{income.name}}
-          %td {{income.entry_type_id}}
-          %td {{income.amount}}
-        %tr
-          %td
-          %td= t(:total)
-          %td.bold {{totalIncome()}}
+        %th
+      %tr{ 'ng-repeat' => 'income in incomes' }
+        %td {{income.name}}
+        %td {{income.entry_type_id}}
+        %td {{income.amount}}
+        %td
+          .close{ 'ng-click' => 'destroyIncome(income.id)' } &times;
+      %tr
+        %td
+        %td= t(:total)
+        %td.bold {{totalIncome()}}
+        %td
 %form.form-inline{ 'ng-submit' => 'createIncome()' }
   .form-group
     = text_field_tag nil, nil, placeholder: t(:name), class: 'form-control', 'ng-model' => 'newIncome.name'

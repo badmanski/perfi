@@ -13,9 +13,9 @@ Finance::Application.routes.draw do
             only: [:index, :create, :destroy],
             defaults: { format: :json }
 
-  resources :incomes, only: [:create, :index]
+  resources :incomes, only: [:create, :index, :destroy]
 
-  resources :expenses, only: [:create, :index]
+  resources :expenses, only: [:create, :index, :destroy]
 
   get 'dashboard', to: 'dashboard#index'
   match 'signup', to: 'users#new', via: :get
