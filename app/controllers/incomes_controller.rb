@@ -1,8 +1,8 @@
-class IncomesController < InheritedResources::Base
+class IncomesController < ApplicationController
   respond_to :json
 
   def index
-    respond_with Entry.all
+    respond_with current_user.entries.incomes
   end
 
   def create

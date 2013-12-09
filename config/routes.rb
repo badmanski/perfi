@@ -15,6 +15,8 @@ Finance::Application.routes.draw do
 
   resources :incomes, only: [:create, :index]
 
+  resources :expenses, only: [:create, :index]
+
   get 'dashboard', to: 'dashboard#index'
   match 'signup', to: 'users#new', via: :get
   root to: 'dashboard#index'

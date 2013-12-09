@@ -1,0 +1,25 @@
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title= t(:expense, count: 2)
+  .panel-body
+    %table.table.table-highlight
+      %tr
+        %th= t(:name)
+        %th= t(:type)
+        %th= t(:amount)
+        %tr{ 'ng-repeat' => 'expense in expenses' }
+          %td {{expense.name}}
+          %td {{expense.entry_type_id}}
+          %td {{expense.amount}}
+        %tr
+          %td
+          %td= t(:total)
+          %td.bold {{totalExpense()}}
+%form.form-inline{ 'ng-submit' => 'createExpense()' }
+  .form-group
+    = text_field_tag nil, nil, placeholder: t(:name), class: 'form-control', 'ng-model' => 'newExpense.name'
+  .form-group
+    = number_field_tag nil, nil, min: 0, placeholder: t(:amount), class: 'form-control', 'ng-model' => 'newExpense.amount'
+  .form-group
+    = select_tag nil, options_from_collection_for_select(@expense_types, 'id', 'name'), class: 'form-control', 'ng-model' => 'newExpense.entry_type_id', required: true
+  = submit_tag t(:add), class: 'btn btn-default'

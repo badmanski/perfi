@@ -1,8 +1,13 @@
 .page-header
   %h1 Dashboard
-.row
-  .col-md-6
-    = render 'incomes'
+
+#entries{ 'ng-controller' => 'EntriesCtrl' }
+  .row.bottom-20
+    .col-md-6
+      = render 'incomes'    
+  .row.bottom-20
+    .col-md-6
+      = render 'expenses'
 
 - content_for :javascript_includes do
   = javascript_include_tag 'angular'
