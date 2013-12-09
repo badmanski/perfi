@@ -1,6 +1,4 @@
 class EntryType < ActiveRecord::Base
-  default_scope { order('positive desc, amount asc') }
-
   belongs_to :user
   has_many :entries
 

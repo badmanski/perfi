@@ -7,6 +7,13 @@ class Entry < ActiveRecord::Base
 
   before_validation :set_name
 
+  scope :incomes, lambda {
+    joins(:entry_type).where('entry_types.positive = true')
+  }
+  scope :expenses, lambda {
+    joins(:entry_type).where('entry_types.positive = false')
+  }
+
   def type
     entry_type
   end
