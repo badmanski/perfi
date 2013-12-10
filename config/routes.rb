@@ -5,6 +5,11 @@ Finance::Application.routes.draw do
     delete 'logout' => :destroy
   end
 
+  controller :dashboard do
+    get 'dashboard' => :index
+    get 'chart_data' => :chart_data
+  end
+
   resources :users
 
   resources :entry_types, except: :show
@@ -17,7 +22,6 @@ Finance::Application.routes.draw do
 
   resources :expenses, only: [:create, :index, :destroy]
 
-  get 'dashboard', to: 'dashboard#index'
   match 'signup', to: 'users#new', via: :get
   root to: 'dashboard#index'
 end

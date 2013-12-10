@@ -12,4 +12,8 @@ class EntryType < ActiveRecord::Base
   def set_user_id
     self.user_id ||= User.current.try(:id)
   end
+
+  def total_amount
+    entries.total_amount
+  end
 end

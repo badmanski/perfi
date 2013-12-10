@@ -8,6 +8,10 @@ class DashboardController < ApplicationController
     end
   end
 
+  def chart_data
+    render json: current_user.try(:chart_data)
+  end
+
   def init_vars
     @income_types = current_user.entry_types.incomes
     @expense_types = current_user.entry_types.expenses

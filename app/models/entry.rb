@@ -21,4 +21,8 @@ class Entry < ActiveRecord::Base
   def set_name
     self.name ||= type.name
   end
+
+  def self.total_amount
+    all.map(&:amount).inject { |sum, n| sum + n }
+  end
 end
