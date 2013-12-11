@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def chart_data
-    data = entry_types.expenses.map{ |x| [x.name, x.total_amount] }
+    data = entry_types.expenses.map { |x| [x.name, x.total_amount] }
     balance > 0 ? data << [I18n.t(:spare_amount), balance] : data
   end
 end

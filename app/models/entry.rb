@@ -23,6 +23,6 @@ class Entry < ActiveRecord::Base
   end
 
   def self.total_amount
-    all.map(&:amount).inject { |sum, n| sum + n }
+    all.map(&:amount).reduce(:+)
   end
 end
