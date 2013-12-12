@@ -23,6 +23,6 @@ class Entry < ActiveRecord::Base
   end
 
   def self.total_amount
-    all.map(&:amount).reduce(:+)
+    all.map(&:amount).reduce(:+) || 0
   end
 end
