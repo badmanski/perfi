@@ -2,7 +2,7 @@ class IncomesController < ApplicationController
   respond_to :json
 
   def index
-    respond_with current_user.entries.incomes
+    @incomes = current_user.entries.incomes
   end
 
   def create

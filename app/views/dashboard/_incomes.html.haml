@@ -10,7 +10,7 @@
         %th
       %tr{ 'ng-repeat' => 'income in incomes' }
         %td {{income.name}}
-        %td {{income.entry_type_id}}
+        %td {{income.type}}
         %td {{income.amount}}
         %td
           .close{ 'ng-click' => 'destroyIncome(income.id)' } &times;
