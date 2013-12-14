@@ -22,7 +22,7 @@ module Finance
 
     config.assets.precompile += [
       'login.css',
-      'highcharts',
+      'highcharts.js',
       'angular.js',
       'angular-resource.js',
       'highcharts-ng.js',
