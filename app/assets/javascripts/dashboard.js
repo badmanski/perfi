@@ -68,6 +68,10 @@ dashboardApp.controller('EntriesCtrl', ['$scope', '$http', 'Incomes', 'Income', 
     });
   }
 
+  $scope.renderChart = function() {
+    return !!($scope.totalIncome() > 0 || $scope.totalExpense() > 0)
+  }
+
   $scope.chartConfig = {
     options: {
       chart: {

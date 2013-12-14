@@ -7,7 +7,7 @@
       = render 'expenses'
       .height-20
       = render 'incomes'
-    .col-md-6
+    .col-md-6{ 'ng-if' => 'renderChart()' }
       %highchart#chart1{ config: 'chartConfig' }
 
 - content_for :javascript_includes do
