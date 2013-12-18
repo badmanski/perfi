@@ -13,7 +13,7 @@ class EntriesController < InheritedResources::Base
   protected
 
     def collection
-      @entries = current_user.entries
+      @entries = current_user.entries.current_month
     end
 
     def permitted_params

@@ -14,6 +14,10 @@ class Entry < ActiveRecord::Base
     joins(:entry_type).where('entry_types.positive = false')
   }
 
+  scope :current_month, lambda {
+    where('entries.created_at > ?', Date.today.beginning_of_month)
+  }
+
   def type
     entry_type
   end

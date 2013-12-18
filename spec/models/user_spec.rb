@@ -12,7 +12,7 @@ describe User do
     end
   end
 
-  describe 'Balance calculation' do
+  describe 'Current month balance calculation' do
     before(:all) do
       @type_expense = @user.entry_types.find_by(name: 'Other expense')
       @type_income = @user.entry_types.find_by(name: 'Other income')
@@ -24,48 +24,48 @@ describe User do
 
     it 'returns total of one expense' do
       @type_expense.entries << Entry.make!
-      expect(@user.total_expenses).to eq 2500
+      expect(@user.current_month_expenses).to eq 2500
     end
 
     it 'returns total of four expenses' do
       @type_expense.entries << Entry.make!(4)
-      expect(@user.total_expenses).to eq 10_000
+      expect(@user.current_month_expenses).to eq 10_000
     end
 
     it 'returns total of zero expenses' do
-      expect(@user.total_expenses).to eq 0
+      expect(@user.current_month_expenses).to eq 0
     end
 
     it 'returns total of one income' do
       @type_income.entries << Entry.make!
-      expect(@user.total_incomes).to eq 2500
+      expect(@user.current_month_incomes).to eq 2500
     end
 
     it 'returns total of four incomes' do
       @type_income.entries << Entry.make!(4)
-      expect(@user.total_incomes).to eq 10_000
+      expect(@user.current_month_incomes).to eq 10_000
     end
 
     it 'returns total of zero incomes' do
-      expect(@user.total_incomes).to eq 0
+      expect(@user.current_month_incomes).to eq 0
     end
 
     it 'returns positive balance' do
       @type_income.entries << Entry.make!
       @type_expense.entries << Entry.make!(amount: 500)
-      expect(@user.balance).to eq 2000
+      expect(@user.current_month_balance).to eq 2000
     end
 
     it 'returns negative balance' do
       @type_expense.entries << Entry.make!
       @type_income.entries << Entry.make!(amount: 500)
-      expect(@user.balance).to eq(-2000)
+      expect(@user.current_month_balance).to eq(-2000)
     end
 
     it 'returns zero balance' do
       @type_expense.entries << Entry.make!
       @type_income.entries << Entry.make!
-      expect(@user.balance).to eq 0
+      expect(@user.current_month_balance).to eq 0
     end
 
     describe 'Chart data' do

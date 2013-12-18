@@ -27,7 +27,7 @@ describe Entry do
       expect(@entry.name).to eq 'Own name'
     end
 
-    describe 'Scopes' do
+    describe 'Negative and positive scopes' do
       before(:all) do
         @positive = Entry.make!
         @negative = Entry.make!(entry_type: EntryType.make!(positive: false))
@@ -41,6 +41,22 @@ describe Entry do
       it 'returns only negative entries' do
         expect(Entry.expenses.include?(@negative)).to be true
         expect(Entry.expenses.include?(@positive)).to be false
+      end
+    end
+
+    describe 'Time ranges' do
+      before(:all) do
+        @entry = Entry.make!
+      end
+
+      it 'includes entry in current month scope' do
+        expect(Entry.current_month.include?(@entry)).to be true
+      end
+
+      it 'doesnt include entry in current month scope' do
+        Timecop.travel(Date.today + 60.days)
+        expect(Entry.current_month.include?(@entry)).to be false
+        Timecop.return
       end
     end
 

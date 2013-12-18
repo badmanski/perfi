@@ -17,20 +17,33 @@ class User < ActiveRecord::Base
     EntryType.create(name: 'Other expense', positive: false, user_id: id)
   end
 
-  def total_expenses
-    entries.expenses.total_amount
+  def current_month_entries
+    entries.current_month
   end
 
-  def total_incomes
-    entries.incomes.total_amount
+  def current_month_expenses
+    current_month_entries.expenses.total_amount
   end
 
-  def balance
-    total_incomes - total_expenses
+  def current_month_incomes
+    current_month_entries.incomes.total_amount
+  end
+
+  def current_month_balance
+    current_month_incomes - current_month_expenses
   end
 
   def chart_data
-    data = entry_types.expenses.map { |x| [x.name, x.total_amount] }
-    balance > 0 ? data << [I18n.t(:spare_amount), balance] : data
+    data = entry_types.expenses.map do |x|
+      [x.name, x.entries.current_month.total_amount]
+    end
+    add_current_month_balance_if_positive(data)
+    data
+  end
+
+  def add_current_month_balance_if_positive(data)
+    if current_month_balance > 0
+      data << [I18n.t(:spare_amount), current_month_balance]
+    end
   end
 end
