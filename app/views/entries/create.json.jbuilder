@@ -1,0 +1,1 @@
+json.(@entry, :id, :name, :type_name, :amount)

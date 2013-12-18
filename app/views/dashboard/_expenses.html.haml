@@ -10,7 +10,7 @@
         %th
       %tr{ 'ng-repeat' => 'expense in expenses' }
         %td {{expense.name}}
-        %td {{expense.type}}
+        %td {{expense.type_name}}
         %td {{expense.amount}}
         %td
           .close{ 'ng-click' => 'destroyExpense(expense.id)' } &times;
