@@ -1,3 +1,12 @@
+%form.form-inline{ 'ng-submit' => 'createIncome()' }
+  .form-group
+    = text_field_tag nil, nil, placeholder: t(:add_income), class: 'form-control', 'ng-model' => 'newIncome.name'
+  .form-group
+    = number_field_tag nil, nil, min: 0, placeholder: t(:amount), class: 'form-control', 'ng-model' => 'newIncome.amount'
+  .form-group
+    = select_tag nil, options_from_collection_for_select(@income_types, 'id', 'name'), class: 'form-control', 'ng-model' => 'newIncome.entry_type_id', required: true
+  = submit_tag t(:add), class: 'btn btn-default'
+.height-20
 .panel.panel-default
   .panel-heading
     %h3.panel-title= t(:income, count: 2)
@@ -19,11 +28,3 @@
         %td= t(:total)
         %td.bold {{totalIncome()}}
         %td
-%form.form-inline{ 'ng-submit' => 'createIncome()' }
-  .form-group
-    = text_field_tag nil, nil, placeholder: t(:name), class: 'form-control', 'ng-model' => 'newIncome.name'
-  .form-group
-    = number_field_tag nil, nil, min: 0, placeholder: t(:amount), class: 'form-control', 'ng-model' => 'newIncome.amount'
-  .form-group
-    = select_tag nil, options_from_collection_for_select(@income_types, 'id', 'name'), class: 'form-control', 'ng-model' => 'newIncome.entry_type_id', required: true
-  = submit_tag t(:add), class: 'btn btn-default'

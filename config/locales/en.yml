@@ -46,10 +46,12 @@ en:
   income:
     one: Income
     other: Incomes
+  add_income: Add Income
 
   expense:
     one: Expense
     other: Expenses
+  add_expense: Add Expense
 
   edit_entry_type: Edit Entry Type
   new_entry_type: New Entry Type
