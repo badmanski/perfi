@@ -14,13 +14,12 @@ Finance::Application.routes.draw do
 
   resources :entry_types, except: :show
 
-  resources :entries,
-            only: [:index, :create, :destroy],
-            defaults: { format: :json }
-
-  resources :incomes, only: [:create, :index, :destroy]
-
-  resources :expenses, only: [:create, :index, :destroy]
+  resources :entries, only: [:create, :destroy], defaults: { format: :json } do
+    collection do
+      get :incomes
+      get :expenses
+    end
+  end
 
   match 'signup', to: 'users#new', via: :get
   root to: 'dashboard#index'

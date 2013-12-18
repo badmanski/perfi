@@ -1,6 +1,6 @@
 var dashboardApp = angular.module('dashboardApp', ['ngResource', 'highcharts-ng']);
 
-dashboardApp.controller('EntriesCtrl', ['$scope', '$http', 'Incomes', 'Income', 'Expenses', 'Expense', function($scope, $http, Incomes, Income, Expenses, Expense) {
+dashboardApp.controller('EntriesCtrl', ['$scope', '$http', 'Incomes','Expenses', 'Entries', 'Entry', function($scope, $http, Incomes, Expenses, Entries, Entry) {
   $scope.incomes = Incomes.query();
   $scope.expenses = Expenses.query();
 
@@ -21,7 +21,7 @@ dashboardApp.controller('EntriesCtrl', ['$scope', '$http', 'Incomes', 'Income', 
   }
 
   $scope.createIncome = function() {
-    Incomes.save($scope.newIncome, function(resource) {
+    Entries.save($scope.newIncome, function(resource) {
       $scope.incomes.push(resource);
       $scope.updateChart();
       $scope.newIncome = {};
@@ -31,7 +31,7 @@ dashboardApp.controller('EntriesCtrl', ['$scope', '$http', 'Incomes', 'Income', 
   }
 
   $scope.createExpense = function() {
-    Expenses.save($scope.newExpense, function(resource) {
+    Entries.save($scope.newExpense, function(resource) {
       $scope.expenses.push(resource);
       $scope.updateChart();
       $scope.newExpense = {};
@@ -41,7 +41,7 @@ dashboardApp.controller('EntriesCtrl', ['$scope', '$http', 'Incomes', 'Income', 
   }
 
   $scope.destroyIncome = function(id) {
-    Income.delete({id: id}, function(resource) {
+    Entry.delete({id: id}, function(resource) {
       $scope.incomes = Incomes.query();
       $scope.updateChart();
     }, function(response) {
@@ -50,7 +50,7 @@ dashboardApp.controller('EntriesCtrl', ['$scope', '$http', 'Incomes', 'Income', 
   }
 
   $scope.destroyExpense = function(id) {
-    Expense.delete({id: id}, function(resource) {
+    Entry.delete({id: id}, function(resource) {
       $scope.expenses = Expenses.query();
       $scope.updateChart();
     }, function(response) {
@@ -92,17 +92,17 @@ dashboardApp.controller('EntriesCtrl', ['$scope', '$http', 'Incomes', 'Income', 
 }]);
 
 dashboardApp.factory('Incomes', ['$resource', function($resource) {
-  return $resource('/incomes.json');
-}]);
-
-dashboardApp.factory('Income', ['$resource', function($resource) {
-  return $resource('/incomes/:id.json')
+  return $resource('/entries/incomes');
 }]);
 
 dashboardApp.factory('Expenses', ['$resource', function($resource) {
-  return $resource('/expenses.json');
+  return $resource('/entries/expenses');
 }]);
 
-dashboardApp.factory('Expense', ['$resource', function($resource) {
-  return $resource('/expenses/:id.json');
+dashboardApp.factory('Entries', ['$resource', function($resource) {
+  return $resource('/entries');
+}]);
+
+dashboardApp.factory('Entry', ['$resource', function($resource) {
+  return $resource('/entries/:id');
 }]);
