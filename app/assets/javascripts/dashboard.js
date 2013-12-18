@@ -20,6 +20,10 @@ dashboardApp.controller('EntriesCtrl', ['$scope', '$http', 'Incomes','Expenses',
     return sum;
   }
 
+  $scope.spareAmount = function() {
+    return $scope.totalIncome() - $scope.totalExpense();
+  }
+
   $scope.createIncome = function() {
     Entries.save($scope.newIncome, function(resource) {
       $scope.incomes.push(resource);

@@ -94,16 +94,16 @@ describe User do
 
       it 'returns a spare amount if balance is positive' do
         @type_income.entries << Entry.make!
-        expect(@user.chart_data.flatten.include?('Spare amount')).to be true
+        expect(@user.chart_data.flatten.include?('Spare Amount')).to be true
       end
 
       it 'doesnt return a spare amount if balance is negative' do
         @type_expense.entries << Entry.make!
-        expect(@user.chart_data.flatten.include?('Spare amount')).to be false
+        expect(@user.chart_data.flatten.include?('Spare Amount')).to be false
       end
 
       it 'doesnt return a spare amount if balance is zero' do
-        expect(@user.chart_data.flatten.include?('Spare amount')).to be false
+        expect(@user.chart_data.flatten.include?('Spare Amount')).to be false
       end
 
       it 'returns total amount of each expense type' do

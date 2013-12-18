@@ -16,7 +16,10 @@ en:
   type: Type
   add: Add
   total: 'Total:'
-  spare_amount: 'Spare amount'
+  total_incomes: Total Incomes
+  total_expenses: Total Expenses
+  spare_amount: 'Spare Amount'
+  summary: Summary
   finance_planner: Finance Planner
   welcome: Welcome to Finance Planner!
   landing_lead_text: "This is a simple finance planner. Here you can manage your daily incomes and outcomes, access history and have quick overview of your budget. Sign up for free account today and get your money flow under control!"
