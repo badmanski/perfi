@@ -16,15 +16,18 @@
         %th= t(:name)
         %th= t(:type)
         %th= t(:amount)
+        %th= t(:datetime)
         %th
       %tr{ 'ng-repeat' => 'expense in expenses' }
         %td {{expense.name}}
         %td {{expense.type_name}}
         %td {{expense.amount}}
+        %td {{expense.created_at}}
         %td
           .close{ 'ng-click' => 'destroyExpense(expense.id)' } &times;
       %tr
         %td
         %td= t(:total)
         %td.bold {{totalExpense()}}
+        %td
         %td
