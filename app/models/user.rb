@@ -34,8 +34,10 @@ class User < ActiveRecord::Base
   end
 
   def chart_data
-    data = entry_types.expenses.map do |x|
-      [x.name, x.entries.current_month.total_amount]
+    data = []
+    entry_types.expenses.each do |x|
+      amount = x.entries.current_month.total_amount
+      data << [x.name, amount] if amount > 0
     end
     add_current_month_balance_if_positive(data)
     data
