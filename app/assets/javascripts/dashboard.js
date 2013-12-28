@@ -90,9 +90,7 @@ dashboardApp.controller('EntriesCtrl', ['$scope', '$http', 'Incomes','Expenses',
     }
   };
 
-  angular.element(document).on('ready page:load', function() {
-    $scope.updateChart();
-  });
+  $scope.updateChart();
 }]);
 
 dashboardApp.factory('Incomes', ['$resource', function($resource) {
