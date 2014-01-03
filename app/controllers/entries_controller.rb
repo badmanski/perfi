@@ -1,6 +1,7 @@
 class EntriesController < InheritedResources::Base
   load_and_authorize_resource
   respond_to :json
+  before_filter :collection, only: [:incomes, :expenses]
 
   def incomes
     @incomes = @entries.incomes
