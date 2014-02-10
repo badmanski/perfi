@@ -26,7 +26,7 @@ dashboardApp.controller('EntriesCtrl', ['$scope', '$http', 'Incomes','Expenses',
 
   $scope.createIncome = function() {
     Entries.save($scope.newIncome, function(resource) {
-      $scope.incomes.push(resource);
+      $scope.incomes.unshift(resource);
       $scope.updateChart();
       $scope.newIncome = {};
     }, function(response) {
@@ -36,7 +36,7 @@ dashboardApp.controller('EntriesCtrl', ['$scope', '$http', 'Incomes','Expenses',
 
   $scope.createExpense = function() {
     Entries.save($scope.newExpense, function(resource) {
-      $scope.expenses.push(resource);
+      $scope.expenses.unshift(resource);
       $scope.updateChart();
       $scope.newExpense = {};
     }, function(response) {
@@ -68,7 +68,7 @@ dashboardApp.controller('EntriesCtrl', ['$scope', '$http', 'Incomes','Expenses',
         x[1] = parseFloat(x[1]);
       });
       $scope.chartConfig.series = [];
-      $scope.chartConfig.series.push({data: response});
+      $scope.chartConfig.series.unshift({data: response});
     });
   }
 

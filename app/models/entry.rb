@@ -18,6 +18,8 @@ class Entry < ActiveRecord::Base
     where('entries.created_at > ?', Date.today.beginning_of_month)
   }
 
+  scope :desc, -> { order created_at: :desc }
+
   def type
     entry_type
   end
