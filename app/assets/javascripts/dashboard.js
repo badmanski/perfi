@@ -90,6 +90,14 @@ dashboardApp.controller('EntriesCtrl', ['$scope', '$http', 'Incomes','Expenses',
     };
   }
 
+  $scope.entriesLimit = function() {
+    if ($scope.currentEnv() == 'xs') {
+      return 5;
+    } else {
+      return $scope.incomes.length + $scope.expenses.length;
+    };
+  };
+
   $scope.chartConfig = {
     options: {
       chart: {

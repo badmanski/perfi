@@ -18,7 +18,7 @@
         %th= t(:amount)
         %th= t(:datetime)
         %th.hidden-xs
-      %tr{ 'ng-repeat' => 'expense in expenses' }
+      %tr{ 'ng-repeat' => 'expense in expenses | limitTo:entriesLimit()' }
         %td {{expense.name}}
         %td.hidden-xs {{expense.type_name}}
         %td {{expense.amount}}
