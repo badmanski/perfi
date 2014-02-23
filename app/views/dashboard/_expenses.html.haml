@@ -13,21 +13,21 @@
   .panel-body
     %table.table.table-normal
       %tr
-        %th= t(:name)
+        %th.hidden-xs= t(:name)
         %th= t(:type)
         %th= t(:amount)
         %th= t(:datetime)
-        %th
+        %th.hidden-xs
       %tr{ 'ng-repeat' => 'expense in expenses' }
-        %td {{expense.name}}
+        %td.hidden-xs {{expense.name}}
         %td {{expense.type_name}}
         %td {{expense.amount}}
         %td {{expense.created_at}}
-        %td
+        %td.hidden-xs
           .close{ 'ng-click' => 'destroyExpense(expense.id)' } &times;
       %tr
-        %td
+        %td.hidden-xs
         %td= t(:total)
         %td.bold {{totalExpense()}}
         %td
-        %td
+        %td.hidden-xs
