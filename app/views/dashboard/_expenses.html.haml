@@ -13,14 +13,14 @@
   .panel-body
     %table.table.table-normal
       %tr
-        %th.hidden-xs= t(:name)
-        %th= t(:type)
+        %th= t(:name)
+        %th.hidden-xs= t(:type)
         %th= t(:amount)
         %th= t(:datetime)
         %th.hidden-xs
       %tr{ 'ng-repeat' => 'expense in expenses' }
-        %td.hidden-xs {{expense.name}}
-        %td {{expense.type_name}}
+        %td {{expense.name}}
+        %td.hidden-xs {{expense.type_name}}
         %td {{expense.amount}}
         %td {{expense.created_at}}
         %td.hidden-xs
