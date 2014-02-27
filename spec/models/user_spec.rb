@@ -10,10 +10,34 @@ describe User do
   end
 
   describe 'balance calculations' do
-    describe 'current month' do
-      let(:type_expense) { user.entry_types.find_by(name: 'Other expense') }
-      let(:type_income) { user.entry_types.find_by(name: 'Other income') }
+    let(:type_expense) { user.entry_types.find_by(name: 'Other expense') }
+    let(:type_income) { user.entry_types.find_by(name: 'Other income') }
 
+    describe 'at beginning of month' do
+      it 'total_expenses'
+
+      it 'total_incomes'
+
+      it 'expenses_at_beginning_of_month'
+
+      it 'incomes_at_beginning_of_month'
+
+      it 'returns no balance' do
+        expect(user.balance_at_beginning_of_month).to eq 0
+      end
+
+      it 'returns positive balance' do
+        one_month_ago { type_expense.entries << Entry.make!(amount: 500) }
+        expect(user.balance_at_beginning_of_month).to eq(-500)
+      end
+
+      it 'returns negative balance' do
+        one_month_ago { type_income.entries << Entry.make!(amount: 500) }
+        expect(user.balance_at_beginning_of_month).to eq 500
+      end
+    end
+
+    describe 'current month' do
       it 'returns total of one expense' do
         type_expense.entries << Entry.make!
         expect(user.current_month_expenses).to eq 2500

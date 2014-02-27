@@ -73,3 +73,9 @@ def login(user)
     click_button 'Log in'
   end
 end
+
+def one_month_ago
+  Timecop.travel(1.month.ago)
+  yield
+  Timecop.return
+end

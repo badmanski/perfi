@@ -17,6 +17,26 @@ class User < ActiveRecord::Base
     EntryType.create(name: 'Other expense', positive: false, user_id: id)
   end
 
+  def total_expenses
+    entries.expenses.total_amount
+  end
+
+  def total_incomes
+    entries.incomes.total_amount
+  end
+
+  def expenses_at_beginning_of_month
+    total_expenses - current_month_expenses
+  end
+
+  def incomes_at_beginning_of_month
+    total_incomes - current_month_incomes
+  end
+
+  def balance_at_beginning_of_month
+    incomes_at_beginning_of_month - expenses_at_beginning_of_month
+  end
+
   def current_month_entries
     entries.current_month
   end
