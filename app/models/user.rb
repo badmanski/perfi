@@ -1,14 +1,17 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
   include SentientUser
 
   has_many :periods, dependent: :destroy
   has_many :entry_types, dependent: :destroy
   has_many :entries, through: :entry_types
 
-  validates :name, :email, :password, :password_confirmation, presence: true
+  validates :name, :email, presence: true
   validates :email, uniqueness: true
-
-  has_secure_password
 
   after_create :set_basic_entry_types
 
