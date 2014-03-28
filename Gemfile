@@ -16,6 +16,7 @@ gem 'haml-rails', '~> 0.4'
 gem 'inherited_resources', '~> 1.4.0'
 gem 'sentient_user'
 gem 'cancan'
+gem 'devise'
 gem 'anjlab-bootstrap-rails', 
   require: 'bootstrap-rails',
   github: 'anjlab/bootstrap-rails'
