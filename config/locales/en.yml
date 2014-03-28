@@ -1,11 +1,7 @@
 en:
-  login_successful: "Welcome, %{user}!"
-  logout_successful: "Logout successful!"
-  login_failed: Log in failed!
-  please_login: Please log in
-  login: Log in
-  logout: Log out
-  signup: Sign up
+  sign_in: Sign in
+  sign_out: Sign out
+  sign_up: Sign up
   signup_today: Sign up today!
   register: Register
   edit: Edit
