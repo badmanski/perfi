@@ -1,5 +1,5 @@
 Finance::Application.routes.draw do
-  devise_for :users
+  devise_for :users, path: ''
 
   devise_scope :user do
     get 'sign_in', to: 'devise/sessions#new'
