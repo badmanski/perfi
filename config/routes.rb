@@ -1,11 +1,5 @@
 Finance::Application.routes.draw do
-  devise_for :users, path: ''
-
-  devise_scope :user do
-    get 'sign_in', to: 'devise/sessions#new'
-    get 'sign_up', to: 'devise/registrations#new'
-    delete 'sign_out', to: 'devise/sessions#destroy'
-  end
+  devise_for :users
 
   controller :sessions do
     get 'login' => :new
