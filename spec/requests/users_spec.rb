@@ -90,7 +90,7 @@ describe 'Users' do
   end
 
   describe 'Sign up' do
-    before(:each) { visit sign_up_path }
+    before(:each) { visit new_user_registration_path }
 
     it 'signs up successfully' do
       within 'form' do

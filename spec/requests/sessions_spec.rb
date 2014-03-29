@@ -19,11 +19,11 @@ describe 'Session management' do
     end
 
     describe 'Login failures' do
-      before(:each) { visit sign_in_path }
+      before(:each) { visit new_user_session_path }
 
       after(:each) do
         click_button 'Sign in'
-        expect(current_path).to eq sign_in_path
+        expect(current_path).to eq new_user_session_path
         ensure_has('Invalid email or password.')
       end
 
