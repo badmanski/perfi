@@ -10,8 +10,7 @@ class User < ActiveRecord::Base
   has_many :entry_types, dependent: :destroy
   has_many :entries, through: :entry_types
 
-  validates :name, :email, presence: true
-  validates :email, uniqueness: true
+  validates :name, presence: true
 
   after_create :set_basic_entry_types
 
