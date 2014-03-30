@@ -65,11 +65,6 @@ describe 'Users' do
       ensure_failure
     end
 
-    it 'can not edit other user accounts' do
-      visit edit_user_path other_user
-      ensure_failure
-    end
-
     it 'can acceess own user account' do
       visit user_path(user)
       expect(current_path).to eq user_path(user)
