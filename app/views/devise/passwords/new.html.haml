@@ -1,0 +1,10 @@
+= devise_error_messages!
+.col-md-4.col-md-offset-4
+  = form_for(resource, as: resource_name, html: { class: 'form' },
+                       url: password_path(resource_name)) do |f|
+    %legend= t(:forgot_password)
+    .form-group
+      = f.label :email
+      = f.email_field :email, autofocus: true, class: 'form-control'
+    = f.submit t(:reset_password), class: 'btn btn-primary btn-block'
+  = render "devise/shared/links"

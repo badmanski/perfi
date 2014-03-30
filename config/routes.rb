@@ -1,16 +1,12 @@
 Finance::Application.routes.draw do
-  controller :sessions do
-    get 'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
-  end
+  devise_for :users
 
   controller :dashboard do
     get 'dashboard' => :index
     get 'chart_data' => :chart_data
   end
 
-  resources :users
+  resources :users, only: [:index, :show]
 
   resources :entry_types, except: :show
 
@@ -21,6 +17,5 @@ Finance::Application.routes.draw do
     end
   end
 
-  match 'signup', to: 'users#new', via: :get
   root to: 'dashboard#index'
 end

@@ -2,15 +2,10 @@ require 'spec_helper'
 
 describe 'Session management' do
   describe 'Logging in' do
-    before(:all) do
-      DatabaseCleaner.clean
-      @user = User.make!(admin: true)
-    end
+    let(:user) { User.make!(admin: true) }
 
     describe 'Successful log in' do
-      before(:each) do
-        login(@user)
-      end
+      before(:each) { login user }
 
       it 'redirects to dashboard' do
         expect(current_path).to eq root_path
@@ -18,56 +13,43 @@ describe 'Session management' do
 
       it 'shows greeting alert' do
         within '.alert' do
-          ensure_has("Welcome, #{@user.name}!")
+          ensure_has('Signed in successfully.')
         end
       end
     end
 
     describe 'Login failures' do
-      before(:each) do
-        visit login_path
-      end
+      before(:each) { visit new_user_session_path }
 
       after(:each) do
-        expect(current_path).to eq login_path
-        within '.alert' do
-          ensure_has('Log in failed!')
-        end
+        click_button 'Sign in'
+        expect(current_path).to eq new_user_session_path
+        ensure_has('Invalid email or password.')
       end
 
       it 'fails to log in if email doesnt exist' do
         within 'form' do
           fill_in 'Email', with: 'inerverexisted@finance.com'
           fill_in 'Password', with: 'password'
-          click_button 'Log in'
         end
       end
 
       it 'fails to log in if wrong password provided' do
         within 'form' do
-          fill_in 'Email', with: @user.email
+          fill_in 'Email', with: user.email
           fill_in 'Password', with: 'wrongpass'
-          click_button 'Log in'
         end
       end
 
       it 'fails to log in if no email provided' do
         within 'form' do
           fill_in 'Password', with: 'password'
-          click_button 'Log in'
         end
       end
 
       it 'fails to log in if no password provided' do
         within 'form' do
           fill_in 'Email', with: 'inerverexisted@finance.com'
-          click_button 'Log in'
-        end
-      end
-
-      it 'fails to log in if nothing provided' do
-        within 'form' do
-          click_button 'Log in'
         end
       end
     end

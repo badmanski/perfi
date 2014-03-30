@@ -1,16 +1,14 @@
 en:
-  login_successful: "Welcome, %{user}!"
-  logout_successful: "Logout successful!"
-  login_failed: Log in failed!
-  please_login: Please log in
-  login: Log in
-  logout: Log out
-  signup: Sign up
+  sign_in: Sign in
+  sign_out: Sign out
+  sign_up: Sign up
   signup_today: Sign up today!
   register: Register
+  remember_me: Remember me
   edit: Edit
   delete: Delete
   sure: Are You sure?
+  unhappy: Unhappy?
   profile: Profile
   update_profile: Update Profile
   type: Type
@@ -24,6 +22,10 @@ en:
   finance_planner: Finance Planner
   welcome: Welcome to Finance Planner!
   landing_lead_text: "This is a simple finance planner. Here you can manage your daily incomes and outcomes, access history and have quick overview of your budget. Sign up for free account today and get your money flow under control!"
+  current_password_to_confirm_changes: we need your current password to confirm your changes
+  forgot_password: Forgot your password?
+  reset_password: Send me reset password instructions
+  change_your_password: Change your password
 
   user:
     one: User

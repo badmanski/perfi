@@ -11,6 +11,9 @@ require 'database_cleaner'
 
 DatabaseCleaner.strategy = :truncation
 
+include Warden::Test::Helpers
+Warden.test_mode!
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
@@ -42,7 +45,8 @@ RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do
@@ -66,11 +70,11 @@ def ensure_has(*contents)
 end
 
 def login(user)
-  visit login_path
+  visit new_user_session_path
   within 'form' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'password'
-    click_button 'Log in'
+    click_button 'Sign in'
   end
 end
 

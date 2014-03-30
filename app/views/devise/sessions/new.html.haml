@@ -1,0 +1,18 @@
+.col-md-4.col-md-offset-4
+  = form_for(resource, as: resource_name, url: session_path(resource_name),
+                       html: { class: 'form' }) do |f|
+    %fieldset
+      %legend= t(:sign_in)
+    .form-group
+      = f.label :email
+      = f.email_field :email, autofocus: true, class: 'form-control'
+    .form-group
+      = f.label :password
+      = f.password_field :password, autocomplete: "off", class: 'form-control'
+    - if devise_mapping.rememberable?
+      .checkbox
+        %label
+          = f.check_box :remember_me
+          = t(:remember_me)
+    = f.submit t(:sign_in), class: 'btn btn-primary btn-block'
+  = render "devise/shared/links"
