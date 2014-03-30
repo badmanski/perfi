@@ -8,6 +8,7 @@ en:
   edit: Edit
   delete: Delete
   sure: Are You sure?
+  unhappy: Unhappy?
   profile: Profile
   update_profile: Update Profile
   type: Type
@@ -21,6 +22,7 @@ en:
   finance_planner: Finance Planner
   welcome: Welcome to Finance Planner!
   landing_lead_text: "This is a simple finance planner. Here you can manage your daily incomes and outcomes, access history and have quick overview of your budget. Sign up for free account today and get your money flow under control!"
+  current_password_to_confirm_changes: we need your current password to confirm your changes
 
   user:
     one: User
