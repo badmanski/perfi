@@ -1,10 +1,10 @@
-%form.form-inline{ 'ng-submit' => 'createIncome()' }
+%form.form-inline
   .form-group
-    = text_field_tag nil, nil, placeholder: t(:add_income), class: 'form-control', 'ng-model' => 'newIncome.name'
+    = text_field_tag nil, nil, placeholder: t(:add_income), class: 'form-control'
   .form-group
-    = number_field_tag nil, nil, min: 0, placeholder: t(:amount), class: 'form-control', 'ng-model' => 'newIncome.amount'
+    = number_field_tag nil, nil, min: 0, placeholder: t(:amount), class: 'form-control'
   .form-group
-    = select_tag nil, options_from_collection_for_select(@income_types, 'id', 'name'), class: 'form-control', 'ng-model' => 'newIncome.entry_type_id', required: true
+    = select_tag nil, options_from_collection_for_select(@user_data[:income_types], 'id', 'name'), class: 'form-control', required: true
   = submit_tag t(:add), class: 'btn btn-default'
 .height-20
 .panel.panel-default
@@ -18,16 +18,17 @@
         %th= t(:amount)
         %th= t(:datetime)
         %th.hidden-xs
-      %tr{ 'ng-repeat' => 'income in incomes | limitTo:entriesLimit()' }
-        %td {{income.name}}
-        %td.hidden-xs {{income.type_name}}
-        %td {{income.amount}}
-        %td {{income.created_at}}
-        %td.hidden-xs
-          .close{ 'ng-click' => 'destroyIncome(income.id)' } &times;
+      - @user_data[:incomes].each do |income|
+        %tr
+          %td= income.name
+          %td.hidden-xs= income.type_name
+          %td= income.amount
+          %td= l(income.created_at)
+          %td.hidden-xs
+            .close &times;
       %tr
         %td.hidden-xs
         %td= t(:total)
-        %td.bold {{totalIncome()}}
+        %td.bold= @user_data[:incomes].total_amount
         %td
         %td.hidden-xs

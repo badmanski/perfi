@@ -1,10 +1,10 @@
-%form.form-inline{ 'ng-submit' => 'createExpense()' }
+%form.form-inline
   .form-group
-    = text_field_tag nil, nil, placeholder: t(:add_expense), class: 'form-control', 'ng-model' => 'newExpense.name'
+    = text_field_tag nil, nil, placeholder: t(:add_expense), class: 'form-control'
   .form-group
-    = number_field_tag nil, nil, min: 0, placeholder: t(:amount), class: 'form-control', 'ng-model' => 'newExpense.amount'
+    = number_field_tag nil, nil, min: 0, placeholder: t(:amount), class: 'form-control'
   .form-group
-    = select_tag nil, options_from_collection_for_select(@expense_types, 'id', 'name'), class: 'form-control', 'ng-model' => 'newExpense.entry_type_id', required: true
+    = select_tag nil, options_from_collection_for_select(@user_data[:expense_types], 'id', 'name'), class: 'form-control', required: true
   = submit_tag t(:add), class: 'btn btn-default'
 .height-20
 .panel.panel-default
@@ -18,16 +18,17 @@
         %th= t(:amount)
         %th= t(:datetime)
         %th.hidden-xs
-      %tr{ 'ng-repeat' => 'expense in expenses | limitTo:entriesLimit()' }
-        %td {{expense.name}}
-        %td.hidden-xs {{expense.type_name}}
-        %td {{expense.amount}}
-        %td {{expense.created_at}}
-        %td.hidden-xs
-          .close{ 'ng-click' => 'destroyExpense(expense.id)' } &times;
+      - @user_data[:expenses].each do |expense|
+        %tr
+          %td= expense.name
+          %td.hidden-xs= expense.type_name
+          %td= expense.amount
+          %td= l(expense.created_at)
+          %td.hidden-xs
+            .close &times;
       %tr
         %td.hidden-xs
         %td= t(:total)
-        %td.bold {{totalExpense()}}
+        %td.bold= @user_data[:expenses].total_amount
         %td
         %td.hidden-xs

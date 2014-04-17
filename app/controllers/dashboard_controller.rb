@@ -15,7 +15,12 @@ class DashboardController < ApplicationController
   end
 
   def init_vars
-    @income_types = current_user.entry_types.incomes
-    @expense_types = current_user.entry_types.expenses
+    entries = current_user.entries.current_month.desc
+    types = current_user.entry_types
+    @user_data = {}
+    @user_data[:income_types] = types.incomes
+    @user_data[:expense_types] = types.expenses
+    @user_data[:incomes] = entries.incomes
+    @user_data[:expenses] = entries.expenses
   end
 end
