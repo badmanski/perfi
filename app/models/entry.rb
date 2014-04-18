@@ -25,7 +25,7 @@ class Entry < ActiveRecord::Base
   end
 
   def set_name
-    self.name = type.name if self.name.blank? || self.name.nil?
+    self.name = type.name if name.blank? || name.nil?
   end
 
   def self.total_amount
