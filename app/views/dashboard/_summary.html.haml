@@ -5,10 +5,10 @@
     %table.table.table-normal
       %tr
         %td.bold= t(:total_incomes)
-        %td {{totalIncome()}}
+        %td= @entries[:total_incomes]
       %tr
         %td.bold= t(:total_expenses)
-        %td {{totalExpense()}}
+        %td= @entries[:total_expenses]
       %tr
         %td.bold= t(:spare_amount)
-        %td {{spareAmount()}}
+        %td= @entries[:balance]
