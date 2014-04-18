@@ -1,14 +1,7 @@
 .page-header
   %h1 Dashboard
 
-#entries
-  .row.bottom-20
-    .col-md-6
-      = render 'entries', kind: 'expense'
-      = render 'entries', kind: 'income'
-    .col-md-6
-      = render 'summary'
-      = render 'chart'
+#dashboard= render 'dashboard'
 
 - content_for :javascript_includes do
   = javascript_include_tag 'highcharts', 'chartkick'
