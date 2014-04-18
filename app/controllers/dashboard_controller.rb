@@ -17,6 +17,7 @@ class DashboardController < ApplicationController
   def init_vars
     init_types
     init_entries
+    @entry = Entry.new
   end
 
   def init_types

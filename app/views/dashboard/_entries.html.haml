@@ -1,10 +1,10 @@
-%form.form-inline
+= form_for @entry, html: { class: 'form-inline' } do |f|
   .form-group
-    = text_field_tag nil, nil, placeholder: t("add_#{kind}"), class: 'form-control'
+    = f.text_field :name, placeholder: t("add_#{kind}"), class: 'form-control'
   .form-group
-    = number_field_tag nil, nil, min: 0, placeholder: t(:amount), class: 'form-control'
+    = f.number_field :amount, min: 0, placeholder: t(:amount), class: 'form-control', required: true
   .form-group
-    = select_tag nil, options_from_collection_for_select(@types[kind.pluralize.to_sym], 'id', 'name'), class: 'form-control', required: true
+    = f.collection_select :entry_type_id, @types[kind.pluralize.to_sym], :id, :name, {}, { class: 'form-control' }
   = submit_tag t(:add), class: 'btn btn-default'
 .height-20
 .panel.panel-default
