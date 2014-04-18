@@ -5,6 +5,10 @@ class EntriesController < InheritedResources::Base
     create! { root_path }
   end
 
+  def destroy
+    destroy! { root_path }
+  end
+
   protected
 
   def permitted_params
