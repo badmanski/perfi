@@ -6,7 +6,9 @@ class EntriesController < InheritedResources::Base
   end
 
   def destroy
-    destroy! { root_path }
+    destroy! do |format|
+      format.js { redirect_to root_path, status: 303  }
+    end
   end
 
   protected

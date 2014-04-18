@@ -25,7 +25,7 @@
           %td= entry.amount
           %td= l(entry.created_at)
           %td.hidden-xs
-            = link_to entry, method: :delete do
+            = link_to entry, remote: true, method: :delete do
               .close &times;
       %tr
         %td.hidden-xs
