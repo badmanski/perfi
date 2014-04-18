@@ -4,8 +4,8 @@
 #entries
   .row.bottom-20
     .col-md-6
-      = render 'expenses'
-      = render 'incomes'
+      = render 'entries', kind: 'expense'
+      = render 'entries', kind: 'income'
     .col-md-6
       = render 'summary'
       = render 'chart'
