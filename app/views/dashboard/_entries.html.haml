@@ -1,4 +1,4 @@
-= form_for @entry, html: { class: 'form-inline' } do |f|
+= form_for @entry, remote: true, html: { class: 'form-inline' } do |f|
   .form-group
     = f.text_field :name, placeholder: t("add_#{kind}"), class: 'form-control'
   .form-group
