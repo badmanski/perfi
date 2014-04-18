@@ -4,7 +4,7 @@
   .form-group
     = number_field_tag nil, nil, min: 0, placeholder: t(:amount), class: 'form-control'
   .form-group
-    = select_tag nil, options_from_collection_for_select(@user_data[:income_types], 'id', 'name'), class: 'form-control', required: true
+    = select_tag nil, options_from_collection_for_select(@types[:incomes], 'id', 'name'), class: 'form-control', required: true
   = submit_tag t(:add), class: 'btn btn-default'
 .height-20
 .panel.panel-default
@@ -18,7 +18,7 @@
         %th= t(:amount)
         %th= t(:datetime)
         %th.hidden-xs
-      - @user_data[:incomes].each do |income|
+      - @entries[:incomes].each do |income|
         %tr
           %td= income.name
           %td.hidden-xs= income.type_name
@@ -29,6 +29,6 @@
       %tr
         %td.hidden-xs
         %td= t(:total)
-        %td.bold= @user_data[:incomes].total_amount
+        %td.bold= @entries[:total_incomes]
         %td
         %td.hidden-xs
