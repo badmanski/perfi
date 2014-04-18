@@ -85,47 +85,35 @@ describe User do
       end
 
       describe 'chart data' do
-        it 'returns an array' do
-          expect(user.chart_data.is_a?(Array)).to be true
+        let(:data) { user.chart_data }
+
+        it 'returns a hash' do
+          expect(data.is_a?(Hash)).to be true
         end
 
-        it 'each element is array' do
-          user.chart_data.each do |x|
-            expect(x.is_a?(Array)).to be true
-          end
-        end
-
-        it 'returned array has two elements' do
-          user.chart_data.each do |x|
-            expect(x.count).to eq 2
-          end
-        end
-
-        it 'returns a string and a number' do
-          user.chart_data.each do |x|
-            expect(x[0].is_a?(String)).to be true
-            expect(x[1].is_a?(Numeric)).to be true
+        it 'values are numbers' do
+          data.values.each do |x|
+            expect(x.is_a?(Numeric)).to be true
           end
         end
 
         it 'returns a spare amount if balance is positive' do
-          type_income.entries << Entry.make!
-          expect(user.chart_data.flatten.include?('Spare Amount')).to be true
+          type_income.entries << Entry.make!(amount: 200)
+          expect(data['Spare Amount']).to eq 200
         end
 
         it 'doesnt return a spare amount if balance is negative' do
           type_expense.entries << Entry.make!
-          expect(user.chart_data.flatten.include?('Spare Amount')).to be false
+          expect(data['Spare Amount']).to be nil
         end
 
         it 'doesnt return a spare amount if balance is zero' do
-          expect(user.chart_data.flatten.include?('Spare Amount')).to be false
+          expect(data['Spare Amount']).to be nil
         end
 
         it 'returns total amount of each expense type' do
           type_expense.entries << Entry.make!(amount: 300)
-          expect(user.chart_data[0][0]).to eq 'Other expense'
-          expect(user.chart_data[0][1]).to eq 300
+          expect(data[type_expense.name]).to eq 300
         end
       end
     end

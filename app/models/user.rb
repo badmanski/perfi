@@ -56,10 +56,10 @@ class User < ActiveRecord::Base
   end
 
   def chart_data
-    data = []
+    data = {}
     entry_types.expenses.each do |x|
       amount = x.entries.current_month.total_amount
-      data << [x.name, amount] if amount > 0
+      data[x.name] = amount if amount > 0
     end
     add_current_month_balance_if_positive(data)
     data
@@ -67,7 +67,7 @@ class User < ActiveRecord::Base
 
   def add_current_month_balance_if_positive(data)
     if current_month_balance > 0
-      data << [I18n.t(:spare_amount), current_month_balance]
+      data[I18n.t(:spare_amount)] = current_month_balance
     end
   end
 end
