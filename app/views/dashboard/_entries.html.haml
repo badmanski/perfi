@@ -1,0 +1,35 @@
+= form_for @entry, remote: true, html: { class: 'form-inline' } do |f|
+  .form-group
+    = f.text_field :name, placeholder: t("add_#{kind}"), class: 'form-control'
+  .form-group
+    = f.number_field :amount, min: 0, placeholder: t(:amount), class: 'form-control', required: true
+  .form-group
+    = f.collection_select :entry_type_id, @types[kind.pluralize.to_sym], :id, :name, {}, { class: 'form-control' }
+  = submit_tag t(:add), class: 'btn btn-default'
+.height-20
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title= t(kind, count: 2)
+  .panel-body
+    %table.table.table-normal
+      %tr
+        %th= t(:name)
+        %th.hidden-xs= t(:type)
+        %th= t(:amount)
+        %th= t(:datetime)
+        %th.hidden-xs
+      - @entries[kind.pluralize.to_sym].each do |entry|
+        %tr
+          %td= entry.name
+          %td.hidden-xs= entry.type_name
+          %td= entry.amount
+          %td= l(entry.created_at)
+          %td.hidden-xs
+            = link_to entry, remote: true, method: :delete do
+              .close &times;
+      %tr
+        %td.hidden-xs
+        %td= t(:total)
+        %td.bold= @entries["total_#{kind.pluralize}".to_sym]
+        %td
+        %td.hidden-xs

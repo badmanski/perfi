@@ -10,12 +10,32 @@ class DashboardController < ApplicationController
     end
   end
 
-  def chart_data
-    render json: current_user.try(:chart_data)
+  def init_vars
+    init_types
+    init_entries
+    init_new_entry
   end
 
-  def init_vars
-    @income_types = current_user.entry_types.incomes
-    @expense_types = current_user.entry_types.expenses
+  private
+
+  def init_types
+    types = current_user.entry_types
+    @types = {}
+    @types[:incomes] = types.incomes
+    @types[:expenses] = types.expenses
+  end
+
+  def init_entries
+    entries = current_user.current_month_entries.desc
+    @entries = {}
+    @entries[:incomes] = entries.incomes
+    @entries[:expenses] = entries.expenses
+    @entries[:total_incomes] = entries.incomes.total_amount
+    @entries[:total_expenses] = entries.expenses.total_amount
+    @entries[:balance] = @entries[:total_incomes] - @entries[:total_expenses]
+  end
+
+  def init_new_entry
+    @entry = Entry.new
   end
 end

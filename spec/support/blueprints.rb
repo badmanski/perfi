@@ -8,15 +8,6 @@ User.blueprint do
   admin { false }
 end
 
-PeriodType.blueprint do
-  name { 'Month' }
-end
-
-Period.blueprint do
-  period_type { PeriodType.make! }
-  user { User.make! }
-end
-
 EntryType.blueprint do
   name { "Salary #{sn}" }
   amount { 2500 }

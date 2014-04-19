@@ -1,23 +1,19 @@
 class EntriesController < InheritedResources::Base
   load_and_authorize_resource
-  respond_to :json
-  before_filter :collection, only: [:incomes, :expenses]
 
-  def incomes
-    @incomes = @entries.incomes
+  def create
+    create! { root_path }
   end
 
-  def expenses
-    @expenses = @entries.expenses
+  def destroy
+    destroy! do |format|
+      format.js { redirect_to root_path, status: 303  }
+    end
   end
 
   protected
 
-    def collection
-      @entries = current_user.entries.current_month.desc
-    end
-
-    def permitted_params
-      params.permit(entry: [:name, :entry_type_id, :amount])
-    end
+  def permitted_params
+    params.permit(entry: [:name, :entry_type_id, :amount])
+  end
 end
