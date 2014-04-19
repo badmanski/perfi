@@ -1,10 +1,7 @@
 Finance::Application.routes.draw do
   devise_for :users
 
-  controller :dashboard do
-    get 'dashboard' => :index
-    get 'chart_data' => :chart_data
-  end
+  resources :dashboard, only: :index
 
   resources :users, only: [:index, :show]
 
