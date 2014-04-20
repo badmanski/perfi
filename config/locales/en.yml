@@ -74,3 +74,8 @@ en:
     manage:
       all: "You are not authorized to access this page."
       user: "You are not authorized to access other user accounts."
+
+  views:
+    pagination:
+      first: "&lsaquo;&lsaquo;"
+      last: "&rsaquo;&rsaquo;"
