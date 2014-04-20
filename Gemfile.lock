@@ -143,6 +143,7 @@ GEM
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
+    newrelic_rpm (3.7.3.204)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
@@ -291,6 +292,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   machinist (~> 2.0.0)
+  newrelic_rpm
   pg (~> 0.15.1)
   pry (~> 0.9.12.1)
   pry-remote

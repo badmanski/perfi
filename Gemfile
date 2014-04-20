@@ -18,6 +18,7 @@ gem 'cancan'
 gem 'devise'
 gem 'chartkick'
 gem 'kaminari'
+gem 'newrelic_rpm'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
