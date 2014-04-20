@@ -18,9 +18,6 @@ gem 'cancan'
 gem 'devise'
 gem 'chartkick'
 gem 'kaminari'
-gem 'anjlab-bootstrap-rails', 
-  require: 'bootstrap-rails',
-  github: 'anjlab/bootstrap-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
