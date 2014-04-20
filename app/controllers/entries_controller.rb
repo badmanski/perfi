@@ -1,19 +1,19 @@
-class EntriesController < InheritedResources::Base
+class EntriesController < ApplicationController
   load_and_authorize_resource
 
   def create
-    create! { root_path }
+    Entry.create(entry_params)
+    redirect_to root_path
   end
 
   def destroy
-    destroy! do |format|
-      format.js { redirect_to root_path, status: 303  }
-    end
+    Entry.find_by(id: params[:id]).try(:destroy)
+    redirect_to root_path, status: 303
   end
 
-  protected
+  private
 
-  def permitted_params
-    params.permit(entry: [:name, :entry_type_id, :amount])
+  def entry_params
+    params.require(:entry).permit(:name, :entry_type_id, :amount)
   end
 end
