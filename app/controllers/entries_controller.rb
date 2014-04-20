@@ -7,9 +7,8 @@ class EntriesController < InheritedResources::Base
   end
 
   def destroy
-    destroy! do |format|
-      format.js { redirect_to root_path, status: 303  }
-    end
+    Entry.find_by(id: params[:id]).try(:destroy)
+    redirect_to root_path, status: 303
   end
 
   private
