@@ -17,6 +17,7 @@ gem 'sentient_user'
 gem 'cancan'
 gem 'devise'
 gem 'chartkick'
+gem 'kaminari'
 gem 'anjlab-bootstrap-rails', 
   require: 'bootstrap-rails',
   github: 'anjlab/bootstrap-rails'
