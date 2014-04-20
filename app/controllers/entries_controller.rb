@@ -2,7 +2,8 @@ class EntriesController < InheritedResources::Base
   load_and_authorize_resource
 
   def create
-    create! { root_path }
+    Entry.create(entry_params)
+    redirect_to root_path
   end
 
   def destroy
@@ -11,9 +12,13 @@ class EntriesController < InheritedResources::Base
     end
   end
 
-  protected
+  private
 
   def permitted_params
     params.permit(entry: [:name, :entry_type_id, :amount])
+  end
+
+  def entry_params
+    params.require(:entry).permit(:name, :entry_type_id, :amount)
   end
 end
