@@ -1,4 +1,4 @@
-class EntriesController < InheritedResources::Base
+class EntriesController < ApplicationController
   load_and_authorize_resource
 
   def create
@@ -12,10 +12,6 @@ class EntriesController < InheritedResources::Base
   end
 
   private
-
-  def permitted_params
-    params.permit(entry: [:name, :entry_type_id, :amount])
-  end
 
   def entry_params
     params.require(:entry).permit(:name, :entry_type_id, :amount)
