@@ -131,6 +131,9 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    kaminari (0.15.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     listen (2.2.0)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -295,6 +298,7 @@ DEPENDENCIES
   inherited_resources (~> 1.4.0)
   jbuilder (~> 1.2)
   jquery-rails
+  kaminari
   machinist (~> 2.0.0)
   pg (~> 0.15.1)
   pry (~> 0.9.12.1)
