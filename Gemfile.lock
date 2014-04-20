@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/anjlab/bootstrap-rails.git
-  revision: 1e43948db7188e670b637ca4fd2076f3a0fa058f
-  specs:
-    anjlab-bootstrap-rails (3.0.2.0)
-      railties (>= 3.0)
-      sass (>= 3.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -277,7 +269,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  anjlab-bootstrap-rails!
   awesome_print
   bcrypt-ruby (~> 3.0.0)
   better_errors

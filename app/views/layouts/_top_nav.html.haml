@@ -1,21 +1,22 @@
-%nav.navbar.navbar-inverse.navbar-static-top
-  .navbar-header
-    %button.navbar-toggle{'data-toggle' => 'collapse', 'data-target' => '.navbar-collapse'}
-      %span.sr-only= t(:toggle_navigation)
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
-    = link_to t(:finance_planner), root_path, class: 'navbar-brand'
+%nav.navbar.navbar-default.navbar-static-top
+  .container
+    .navbar-header
+      %button.navbar-toggle{'data-toggle' => 'collapse', 'data-target' => '.navbar-collapse'}
+        %span.sr-only= t(:toggle_navigation)
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to t(:finance_planner), root_path, class: 'navbar-brand'
 
-  .collapse.navbar-collapse
-    %ul.nav.navbar-nav
-      - if can? :manage, :all
-        %li= link_to t(:user, count: 2), users_path
-      - if current_user
-        %li= link_to t(:profile), user_path(current_user)
-        %li= link_to t(:entry_type, count: 2), entry_types_path
-    %ul.nav.navbar-nav.navbar-right
-      - if current_user
-        %li= link_to t(:sign_out), destroy_user_session_path, method: 'delete'
-      - else
-        %li= link_to t(:sign_in), new_user_session_path
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        - if can? :manage, :all
+          %li= link_to t(:user, count: 2), users_path
+        - if current_user
+          %li= link_to t(:profile), user_path(current_user)
+          %li= link_to t(:entry_type, count: 2), entry_types_path
+      %ul.nav.navbar-nav.navbar-right
+        - if current_user
+          %li= link_to t(:sign_out), destroy_user_session_path, method: 'delete'
+        - else
+          %li= link_to t(:sign_in), new_user_session_path
