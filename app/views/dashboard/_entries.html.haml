@@ -33,4 +33,4 @@
         %td.bold= @entries["total_#{kind.pluralize}".to_sym]
         %td
         %td.hidden-xs
-    = paginate @entries[kind.pluralize.to_sym], remote: true
+    = paginate @entries[kind.pluralize.to_sym], remote: true, param_name: "page_#{kind.pluralize}"
