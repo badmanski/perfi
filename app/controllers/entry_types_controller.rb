@@ -9,6 +9,14 @@ class EntryTypesController < InheritedResources::Base
     update! { entry_types_path }
   end
 
+  protected
+
+  def collection
+    @entry_types = current_user.entry_types
+  end
+
+  private
+
   def permitted_params
     params.permit(entry_type: [:name, :user_id, :amount, :positive])
   end

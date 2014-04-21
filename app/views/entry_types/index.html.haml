@@ -11,7 +11,7 @@
       %td= type.name
       %td= type.amount
       %td= check_box_tag nil, nil, type.positive, disabled: true
-      %td= link_to t(:edit), edit_entry_type_path(type), class: 'btn btn-warning', id: "edit-entry-type-#{type.id}"
-      %td= link_to t(:delete), type, data: { confirm: t(:sure) }, method: :delete, class: 'btn btn-danger', id: "destroy-entry-type-#{type.id}"
+      %td= link_to t(:edit), edit_entry_type_path(type), id: "edit-entry-type-#{type.id}"
+      %td= link_to t(:delete), type, data: { confirm: t(:sure) }, method: :delete, id: "destroy-entry-type-#{type.id}"
 
 = link_to t(:new_entry_type), new_entry_type_path, class: 'btn btn-success'

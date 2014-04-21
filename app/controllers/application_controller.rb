@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include SentientController
+
   before_filter :authenticate_user!
   before_filter :configure_permitted_params, if: :devise_controller?
   before_filter :allow_resource_params
