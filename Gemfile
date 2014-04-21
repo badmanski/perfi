@@ -46,4 +46,5 @@ group :test, :development do
   gem 'timecop'
   gem 'simplecov'
   gem 'database_cleaner'
+  gem 'dotenv-rails'
 end
