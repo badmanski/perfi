@@ -1,5 +1,6 @@
 language: ruby
-rvm: 2.0.0
+rvm:
+  - 2.0.0
 before_install:
   - rake db:create RAILS_ENV=test
   - rake db:migrate RAILS_ENV=test
