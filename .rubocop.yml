@@ -1,13 +1,9 @@
 AllCops:
-  Includes:
-    - config.ru
   Excludes:
     - db/**
-    - db/schema.rb
     - config/**
-    - config/initializers/secret_token.rb
-    - test/test_helper.rb
-    - script/**
+    - test/**
+    - vendor/**
     - Rakefile
 
 Documentation:
