@@ -3,6 +3,6 @@ rvm:
   - 2.0.0
 cache: bundler
 script:
-  - bundle exec rspec
+  - bundle exec rake
   - bundle exec rubocop
   - bundle exec brakeman
