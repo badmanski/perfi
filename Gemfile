@@ -20,6 +20,7 @@ gem 'chartkick'
 gem 'kaminari'
 gem 'newrelic_rpm'
 gem 'travis'
+gem 'websocket-native'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
