@@ -12,6 +12,7 @@ deploy:
   app: financeplanner
   on:
     repo: badmanski/finance
+  strategy: git
 env:
   global:
   - secure: bj4bi3Hy8DJfRWbeancQrZYTGXQ3ayj68l9UN6XH3nzPOSb+Gc7UD/NgfeT9+Kb3x9wTxlgIzPE8HQAou6qN8VTwTZXHZRvt5VUCtsWXIBsZYZXwK86iTI0firRMxOQKFnPlAEgoXRBdRTBBsLcUYfl3uzd6BfRKWg+Motm+9VI=
