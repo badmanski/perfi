@@ -2,6 +2,13 @@ language: ruby
 rvm: 2.0.0
 cache: bundler
 script:
-  - bundle exec rake
-  - bundle exec rubocop
-  - bundle exec brakeman
+- bundle exec rake
+- bundle exec rubocop
+- bundle exec brakeman
+deploy:
+  provider: heroku
+  api_key:
+    secure: ZNnGRJIwsB7Bwv5MhKaxCRsVD66Nvw+UcvrXKrUEnsYe7rGjulBxMUk6J6iXKGgc+MMjmcCxgDriTRCoVifEbFjHQTim7woXozZC9Lr742f3vg3/z4KCYQcPQTEYhpJtCnQiDvqmpHskzpB9mmDiJxl+Le17NMxOi6j1td7Bvc4=
+  app: financeplanner
+  on:
+    repo: badmanski/finance
