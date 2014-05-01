@@ -12,3 +12,10 @@ deploy:
   app: financeplanner
   on:
     repo: badmanski/finance
+env:
+  global:
+  - secure: bj4bi3Hy8DJfRWbeancQrZYTGXQ3ayj68l9UN6XH3nzPOSb+Gc7UD/NgfeT9+Kb3x9wTxlgIzPE8HQAou6qN8VTwTZXHZRvt5VUCtsWXIBsZYZXwK86iTI0firRMxOQKFnPlAEgoXRBdRTBBsLcUYfl3uzd6BfRKWg+Motm+9VI=
+  - secure: RpTj9qA/r8PqmFeJTfDnl3Ro3tCoI66QjQEyUTtAqXSqOEy+OVtYkSqbAz7XLtr1f3VA/ruMAMFHu5HUllyGXNkgY1BYvq6IMQfKuZMsWfdbow0kYT4Py9Y2N/Qqn6QeOvFJ2rSk0mNIAdnA1qZiqD2tpnEPCKdo+GNhQAMEK3A=
+  - secure: e5F2oJcrtxmWq5K5ROLxjlvFtbSP5OONyovUw+x6PB2H4lYn0BWLDbmFxfDt2tWjR1Z3nTizeLIiV5TT611kuTj7Hb5v38VzOT/+elT/m9P4WLAsKZxh93H7wxBMm+776Ttt6ug8KWASqN9hQsCUn8nMvT+cDcFksfjn+i+aZnE=
+  - secure: lAvLJb67iSzaEJKlZArBY894uHO7fw/Qr7X5ueweozAhNIHD8r9WpLjb9jGZYcIiyiyicaljm0CuRwO7IbaRXHsZEKGpG+ECnjkvPXcGPx1vUv73R2vxooE3p1KX6Ntf2s+5WWZgV/h9Yk7UGbKY6MiMZqdXxqtn+ms/mnXBDp4=
+  - secure: OK/hzE/MuUxw093szLn5tkgvwk5R++xZ6SWUiQtFHPywnXyPpmVc7I9aKHQDOuMIveXeNY0jk4yZyV0X393nNzq/Tel2bQyfhjPbvwdGdFjy56/IlTTqAMlL+ysVbNnRaUVF1bOcoAZeT356DiJuVBwlCS+muOKViJHjJAlBIUQ=
