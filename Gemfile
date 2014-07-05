@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.4'
 gem 'pg'
-gem 'sass-rails'
+gem 'sass-rails', github: 'rails/sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
