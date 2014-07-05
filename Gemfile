@@ -1,18 +1,18 @@
-ruby "2.0.0"
+ruby "2.1.2"
 
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0'
-gem 'pg', '~> 0.15.1'
-gem 'sass-rails', '~> 4.0.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'rails', '4.1.4'
+gem 'pg'
+gem 'sass-rails', github: 'rails/sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'jquery-rails'
-gem 'jbuilder', '~> 1.2'
-gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'haml', '~> 4.0.2'
-gem 'haml-rails', '~> 0.4'
-gem 'inherited_resources', '~> 1.4.0'
+gem 'jbuilder'
+gem 'bcrypt-ruby'
+gem 'haml'
+gem 'haml-rails'
+gem 'inherited_resources'
 gem 'sentient_user'
 gem 'cancan'
 gem 'devise'
@@ -39,10 +39,10 @@ group :development do
 end
 
 group :test, :development do
-  gem 'rspec-rails', '~> 2.13.1'
-  gem 'capybara', '~> 2.1.0'
-  gem 'machinist', '~> 2.0.0'
-  gem 'pry', '~> 0.9.12.1'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'machinist'
+  gem 'pry'
   gem 'pry-remote'
   gem 'awesome_print'
   gem 'timecop'

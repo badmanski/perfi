@@ -1,9 +1,9 @@
 AllCops:
-  Excludes:
-    - db/**
-    - config/**
-    - test/**
-    - vendor/**
+  Exclude:
+    - db/**/*
+    - config/**/*
+    - test/**/*
+    - vendor/**/*
     - Rakefile
 
 Documentation:

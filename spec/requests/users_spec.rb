@@ -95,8 +95,8 @@ describe 'Users' do
         fill_in 'Password confirmation', with: 'password'
         click_button 'Sign up'
       end
-     expect(current_path).to eq root_path
-     ensure_has 'Welcome! You have signed up successfully.'
+      expect(current_path).to eq root_path
+      ensure_has 'Welcome! You have signed up successfully.'
     end
 
     it 'fails to sign up if required fields are not filled' do
