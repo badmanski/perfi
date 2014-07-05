@@ -2,5 +2,5 @@
 ## Finance planner web app
 
 ### Tech specs
-* Ruby 2.0.0
-* Rails 4.0.0
+* Ruby 2.1.2
+* Rails 4.1.4
