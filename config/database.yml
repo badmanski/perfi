@@ -21,3 +21,4 @@ staging: &staging
 
 production:
   <<: *staging
+  schema_search_path: public
