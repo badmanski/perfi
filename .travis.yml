@@ -2,6 +2,7 @@ language: ruby
 rvm: 2.1.2
 cache: bundler
 script:
+- bundle exec rake db:create db:migrate
 - bundle exec rake
 - bundle exec rubocop
 - bundle exec brakeman
