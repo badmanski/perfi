@@ -38,6 +38,10 @@ group :development do
   gem 'capistrano'
 end
 
+group :test do
+  gem 'simplecov'
+end
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
@@ -46,7 +50,6 @@ group :test, :development do
   gem 'pry-remote'
   gem 'awesome_print'
   gem 'timecop'
-  gem 'simplecov'
   gem 'database_cleaner'
   gem 'dotenv-rails'
 end
