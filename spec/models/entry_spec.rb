@@ -62,6 +62,16 @@ describe Entry do
           expect(entry.type_name).to eq entry.type.name
         end
       end
+
+      context '#user' do
+        it 'responds to #user' do
+          expect(entry).to respond_to :user
+        end
+
+        it 'returns type user' do
+          expect(entry.user).to eq entry.type.user
+        end
+      end
     end
   end
 

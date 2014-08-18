@@ -5,6 +5,8 @@ class Entry < ActiveRecord::Base
 
   delegate :name, to: :type, prefix: true
 
+  delegate :user, to: :type
+
   before_validation :set_name
 
   scope :incomes, lambda {
