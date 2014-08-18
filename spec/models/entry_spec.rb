@@ -104,4 +104,33 @@ describe Entry do
       expect(Entry.total_amount).to eq 0
     end
   end
+
+  describe '#update_user_balance!' do
+    context 'success' do
+      let(:entry) do
+        Entry.make!(entry_type: EntryType.make!(user: User.make!(balance: 500)))
+      end
+
+      it 'responds to #update_user_balance!' do
+        expect(entry).to respond_to :update_user_balance!
+      end
+
+      it 'sends :update_attributes to user' do
+        expect(entry.user).to receive(:update_attributes).with(balance: 3_000)
+        entry.update_user_balance!
+      end
+    end
+
+    context 'failure' do
+      it 'raises Module::DelegationError if no entry_type' do
+        expect { Entry.new.update_user_balance! }
+          .to raise_error Module::DelegationError
+      end
+
+      it 'raises TypeError if no amount' do
+        entry = Entry.make(entry_type: EntryType.make!, amount: nil)
+        expect { entry.update_user_balance! }.to raise_error TypeError
+      end
+    end
+  end
 end

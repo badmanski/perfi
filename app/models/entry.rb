@@ -30,6 +30,11 @@ class Entry < ActiveRecord::Base
     self.name = type.name if name.blank? || name.nil?
   end
 
+  def update_user_balance!
+    user_balance = user.balance + amount
+    user.update_attributes(balance: user_balance)
+  end
+
   def self.total_amount
     all.map(&:amount).reduce(:+) || 0
   end
