@@ -9,6 +9,8 @@ class Entry < ActiveRecord::Base
 
   before_validation :set_name
 
+  after_create :update_user_balance
+
   scope :incomes, lambda {
     joins(:entry_type).where('entry_types.positive = true')
   }
