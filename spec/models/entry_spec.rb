@@ -133,4 +133,15 @@ describe Entry do
       end
     end
   end
+
+  describe '#update_user_balance' do
+    it 'calls #update_user_balance' do
+      expect(entry).to receive :update_user_balance!
+      entry.update_user_balance
+    end
+
+    it 'returns false in case of error' do
+      expect(Entry.new.update_user_balance).to be false
+    end
+  end
 end
