@@ -51,6 +51,20 @@ describe Entry do
     end
   end
 
+  describe 'delegates' do
+    describe 'type' do
+      context '#name' do
+        it 'responds to #name' do
+          expect(entry).to respond_to :name
+        end
+
+        it 'returns type name' do
+          expect(entry.type_name).to eq entry.type.name
+        end
+      end
+    end
+  end
+
   describe 'default values' do
     describe '#set_name' do
       it 'sets entry type value as default' do
