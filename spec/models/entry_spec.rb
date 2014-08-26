@@ -116,7 +116,9 @@ describe Entry do
       end
 
       it 'sends :update_attributes to user' do
-        expect(entry.user).to receive(:update_attributes).with(balance: 3_000)
+        entry.user.update_attributes(balance: 500)
+        expect(entry.user)
+          .to receive(:update_attributes).with(balance: 3_000.to_d)
         entry.update_user_balance!
       end
     end
