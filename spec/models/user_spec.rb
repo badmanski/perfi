@@ -14,14 +14,6 @@ describe User do
     let(:type_income) { user.entry_types.find_by(name: 'Other income') }
 
     describe 'at beginning of month' do
-      it 'total_expenses'
-
-      it 'total_incomes'
-
-      it 'expenses_at_beginning_of_month'
-
-      it 'incomes_at_beginning_of_month'
-
       it 'returns no balance' do
         expect(user.balance_at_beginning_of_month).to eq 0
       end
