@@ -8,7 +8,7 @@
     %legend= @entry_type.persisted? ? t(:edit_entry_type) : t(:new_entry_type)
     .form-group
       = f.label :name, t(:name)
-      = f.text_field :name, placeholder: t(:name), class: 'form-control'
+      = f.text_field :name, placeholder: t(:name), class: 'form-control capitalize'
     .form-group
       = f.label :amount, t(:amount)
       = f.number_field :amount, class: 'form-control'

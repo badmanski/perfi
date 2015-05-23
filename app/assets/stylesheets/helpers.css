@@ -14,3 +14,7 @@
 .height-20 {
   height: 20px;
 }
+
+.capitalize {
+  text-transform: capitalize;
+}
