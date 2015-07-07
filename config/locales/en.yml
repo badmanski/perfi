@@ -18,7 +18,9 @@ en:
   total_expenses: Total Expenses
   spare_amount: 'Spare Amount'
   balance: 'Balance'
+  total_balance: 'Total balance'
   summary: Summary
+  monthly_summary: 'Monthly summary'
   datetime: Datetime
   finance_planner: Finance Planner
   welcome: Welcome to Finance Planner!
