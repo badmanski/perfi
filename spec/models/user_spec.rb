@@ -76,7 +76,7 @@ describe User do
         expect(user.current_month_balance).to eq 0
       end
 
-      describe 'chart data' do
+      xdescribe 'chart data' do
         let(:data) { user.chart_data }
 
         it 'returns a hash' do

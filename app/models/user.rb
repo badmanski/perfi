@@ -61,12 +61,7 @@ class User < ActiveRecord::Base
       amount = x.entries.current_month.total_amount
       data[x.name] = amount if amount > 0
     end
-    add_current_month_balance_if_positive(data)
+    data[I18n.t(:balance)] = balance
     data
-  end
-
-  def add_current_month_balance_if_positive(data)
-    return unless current_month_balance > 0
-    data[I18n.t(:spare_amount)] = current_month_balance
   end
 end

@@ -17,6 +17,7 @@ en:
   total_incomes: Total Incomes
   total_expenses: Total Expenses
   spare_amount: 'Spare Amount'
+  balance: 'Balance'
   summary: Summary
   datetime: Datetime
   finance_planner: Finance Planner
