@@ -23,7 +23,6 @@ describe User do
     end
 
     it 'includes user balance' do
-      type_income = user.entry_types.incomes.first
       expect(data[I18n.t(:balance)]).to eq user.balance
     end
 
