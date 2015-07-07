@@ -312,6 +312,8 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
+    turbolinks (2.5.3)
+      coffee-rails
     typhoeus (0.6.9)
       ethon (>= 0.7.1)
     tzinfo (1.2.1)
@@ -366,5 +368,6 @@ DEPENDENCIES
   simplecov
   timecop
   travis
+  turbolinks
   uglifier
   websocket-native
