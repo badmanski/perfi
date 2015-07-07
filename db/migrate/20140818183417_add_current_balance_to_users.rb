@@ -1,5 +1,5 @@
 class AddCurrentBalanceToUsers < ActiveRecord::Migration
   def change
-    add_column :users, :current_balance, :decimal, null: false, default: 0
+    add_column :users, :balance, :decimal, null: false, default: 0
   end
 end
