@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
       amount = x.entries.current_month.total_amount
       data[x.name] = amount if amount > 0
     end
-    data[I18n.t(:balance)] = balance
+    data[I18n.t(:balance)] = balance unless balance.zero?
     data
   end
 end
