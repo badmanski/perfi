@@ -5,7 +5,11 @@ class Entry < ActiveRecord::Base
 
   delegate :name, to: :type, prefix: true
 
+  delegate :user, :positive, :positive?, to: :type
+
   before_validation :set_name
+
+  after_create :update_user_balance
 
   scope :incomes, lambda {
     joins(:entry_type).where('entry_types.positive = true')
@@ -26,6 +30,18 @@ class Entry < ActiveRecord::Base
 
   def set_name
     self.name = type.name if name.blank? || name.nil?
+  end
+
+  def update_user_balance
+    update_user_balance!
+  rescue
+    false
+  end
+
+  def update_user_balance!
+    sign = positive? ? '+' : '-'
+    user_balance = user.balance.send(sign, amount)
+    user.update_attributes(balance: user_balance)
   end
 
   def self.total_amount
