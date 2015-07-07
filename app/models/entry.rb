@@ -5,7 +5,7 @@ class Entry < ActiveRecord::Base
 
   delegate :name, to: :type, prefix: true
 
-  delegate :user, to: :type
+  delegate :user, :positive, :positive?, to: :type
 
   before_validation :set_name
 
@@ -39,7 +39,8 @@ class Entry < ActiveRecord::Base
   end
 
   def update_user_balance!
-    user_balance = user.balance + amount
+    sign = positive? ? '+' : '-'
+    user_balance = user.balance.send(sign, amount)
     user.update_attributes(balance: user_balance)
   end
 

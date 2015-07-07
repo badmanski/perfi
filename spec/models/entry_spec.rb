@@ -107,19 +107,24 @@ describe Entry do
 
   describe '#update_user_balance!' do
     context 'success' do
-      let(:entry) do
-        Entry.make!(entry_type: EntryType.make!(user: User.make!(balance: 500)))
-      end
+      let(:user) { User.make!(balance: 500) }
 
       it 'responds to #update_user_balance!' do
         expect(entry).to respond_to :update_user_balance!
       end
 
-      it 'sends :update_attributes to user' do
-        entry.user.update_attributes(balance: 500)
-        expect(entry.user)
-          .to receive(:update_attributes).with(balance: 3_000.to_d)
-        entry.update_user_balance!
+      it 'adds amount to user balance' do
+        Entry.make! amount: 200,
+                    entry_type: EntryType.make!(user: user, positive: true)
+        user.reload
+        expect(user.balance).to eq 700.to_d
+      end
+
+      it 'substracts amount from user balance' do
+        Entry.make! amount: 200,
+                    entry_type: EntryType.make!(user: user, positive: false)
+        user.reload
+        expect(user.balance).to eq 300.to_d
       end
     end
 
