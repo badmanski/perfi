@@ -26,7 +26,7 @@ class DashboardController < ApplicationController
   end
 
   def init_entries
-    entries = current_user.current_month_entries.desc
+    entries = current_user.entries.current_month.desc
     @entries = {}
     @entries[:incomes] = entries.incomes.page(params[:page_incomes]).per(5)
     @entries[:expenses] = entries.expenses.page(params[:page_expenses]).per(5)
