@@ -22,12 +22,17 @@ describe User do
       end
     end
 
-    it 'includes user balance if balance is not zero' do
+    it 'includes user balance if balance is greater than zero' do
       user.update_attributes(balance: 500)
       expect(data[I18n.t(:balance)]).to eq user.balance
     end
 
     it 'ignores user balance if balance is zero' do
+      expect(data[I18n.t(:balance)]).to be nil
+    end
+
+    it 'ignores user balance if balance is less than zero' do
+      user.update_attributes(balance: -500)
       expect(data[I18n.t(:balance)]).to be nil
     end
 
