@@ -9,7 +9,8 @@ class Entry < ActiveRecord::Base
 
   before_validation :set_name
 
-  after_create :update_user_balance
+  after_create :update_user_balance_on_create
+  after_destroy :update_user_balance_on_destroy
 
   scope :incomes, lambda {
     joins(:entry_type).where('entry_types.positive = true')
@@ -32,19 +33,34 @@ class Entry < ActiveRecord::Base
     self.name = type.name if name.blank? || name.nil?
   end
 
-  def update_user_balance
-    update_user_balance!
+  def update_user_balance(action: :create)
+    update_user_balance!(action: action)
   rescue
     false
   end
 
-  def update_user_balance!
-    sign = positive? ? '+' : '-'
-    user_balance = user.balance.send(sign, amount)
-    user.update_attributes(balance: user_balance)
+  def update_user_balance!(action: :create)
+    case action
+    when :create
+      operation = positive ? '+' : '-'
+    when :destroy
+      operation = positive ? '-' : '+'
+    end
+    new_balance = user.balance.send(operation, amount)
+    user.update_attributes(balance: new_balance)
   end
 
   def self.total_amount
     all.map(&:amount).reduce(:+) || 0
+  end
+
+  private
+
+  def update_user_balance_on_create
+    update_user_balance(action: :create)
+  end
+
+  def update_user_balance_on_destroy
+    update_user_balance(action: :destroy)
   end
 end

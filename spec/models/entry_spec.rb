@@ -113,18 +113,40 @@ describe Entry do
         expect(entry).to respond_to :update_user_balance!
       end
 
-      it 'adds amount to user balance' do
-        Entry.make! amount: 200,
-                    entry_type: EntryType.make!(user: user, positive: true)
-        user.reload
-        expect(user.balance).to eq 700.to_d
+      context 'entry create' do
+        it 'adds income amount to user balance' do
+          Entry.make! amount: 200,
+                      entry_type: EntryType.make!(user: user, positive: true)
+          user.reload
+          expect(user.balance).to eq 700.to_d
+        end
+
+        it 'substracts expense amount from user balance' do
+          Entry.make! amount: 200,
+                      entry_type: EntryType.make!(user: user, positive: false)
+          user.reload
+          expect(user.balance).to eq 300.to_d
+        end
       end
 
-      it 'substracts amount from user balance' do
-        Entry.make! amount: 200,
-                    entry_type: EntryType.make!(user: user, positive: false)
-        user.reload
-        expect(user.balance).to eq 300.to_d
+      context 'entry destroy' do
+        it 'substracts income amount from user balance' do
+          entry = Entry.make(
+            amount: 200,
+            entry_type: EntryType.make!(user: user, positive: true))
+          entry.destroy
+          user.reload
+          expect(user.balance).to eq 300.to_d
+        end
+
+        it 'adds expense amount to user balance' do
+          entry = Entry.make(
+            amount: 200,
+            entry_type: EntryType.make!(user: user, positive: false))
+          entry.destroy
+          user.reload
+          expect(user.balance).to eq 700.to_d
+        end
       end
     end
 
