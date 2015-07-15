@@ -1,0 +1,8 @@
+= form_for @entry, html: { class: 'form-inline' } do |f|
+  .form-group
+    = f.text_field :name, placeholder: t(:add_entry), class: 'form-control input-sm'
+  .form-group
+    = f.number_field :amount, min: 0, placeholder: t(:amount), class: 'form-control input-sm', required: true, step: 0.01
+  .form-group
+    = f.collection_select :entry_type_id, @types, :id, :name, {}, { class: 'form-control input-sm' }
+  = submit_tag t(:add), class: 'btn btn-default btn-sm'

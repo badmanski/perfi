@@ -51,6 +51,7 @@ en:
   entry:
     one: Entry
     other: Entries
+  add_entry: Add Entry
 
   income:
     one: Income

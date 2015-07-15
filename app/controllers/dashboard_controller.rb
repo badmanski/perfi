@@ -19,10 +19,7 @@ class DashboardController < ApplicationController
   private
 
   def init_types
-    types = current_user.entry_types
-    @types = {}
-    @types[:incomes] = types.incomes
-    @types[:expenses] = types.expenses
+    @types = current_user.entry_types.order(:positive)
   end
 
   def init_entries
