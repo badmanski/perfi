@@ -11,7 +11,7 @@
         %th.hidden-xs
       - @entries[kind.pluralize.to_sym].each do |entry|
         %tr
-          %td= entry.name
+          %td= entry.display_name
           %td.hidden-xs= entry.type_name
           %td= entry.amount
           %td= l(entry.created_at)

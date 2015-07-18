@@ -27,6 +27,10 @@ class Entry < ActiveRecord::Base
     entry_type
   end
 
+  def display_name
+    name.blank? ? type_name : name
+  end
+
   def update_user_balance(action: :create)
     update_user_balance!(action: action)
   rescue
