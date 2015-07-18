@@ -16,3 +16,4 @@
 //= require bootstrap
 //= require highcharts
 //= require chartkick
+//= require alerts
