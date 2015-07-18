@@ -20,9 +20,10 @@ class DashboardController < ApplicationController
 
   def init_types
     types = current_user.entry_types
-    @types = {}
-    @types[:incomes] = types.incomes
-    @types[:expenses] = types.expenses
+    @types = {
+      t(:expense, count: 2) => types.expenses.map { |x| [x.name, x.id] },
+      t(:income, count: 2) => types.incomes.map { |x| [x.name, x.id] }
+    }
   end
 
   def init_entries
