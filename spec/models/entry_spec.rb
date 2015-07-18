@@ -75,20 +75,6 @@ describe Entry do
     end
   end
 
-  describe 'default values' do
-    describe '#set_name' do
-      it 'sets entry type value as default' do
-        expect(entry.name).to eq entry.type_name
-      end
-
-      it 'overrides entry type name with its own name' do
-        entry = Entry.make!(name: 'Own name')
-        expect(entry.name).not_to eq entry.type_name
-        expect(entry.name).to eq 'Own name'
-      end
-    end
-  end
-
   describe '#total_amount' do
     it 'returns total amount of one entries' do
       Entry.make!(amount: 2000)
