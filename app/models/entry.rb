@@ -1,13 +1,11 @@
 class Entry < ActiveRecord::Base
   belongs_to :entry_type
 
-  validates :name, :amount, :entry_type_id, presence: true
+  validates :amount, :entry_type_id, presence: true
 
   delegate :name, to: :type, prefix: true
 
   delegate :user, :positive, :positive?, to: :type
-
-  before_validation :set_name
 
   after_create :update_user_balance_on_create
   after_destroy :update_user_balance_on_destroy
@@ -27,10 +25,6 @@ class Entry < ActiveRecord::Base
 
   def type
     entry_type
-  end
-
-  def set_name
-    self.name = type.name if name.blank? || name.nil?
   end
 
   def update_user_balance(action: :create)
