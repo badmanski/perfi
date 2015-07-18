@@ -1,4 +1,4 @@
-Finance::Application.routes.draw do
+Perfi::Application.routes.draw do
   devise_for :users
 
   resources :dashboard, only: :index
