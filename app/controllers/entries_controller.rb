@@ -3,12 +3,16 @@ class EntriesController < ApplicationController
 
   def create
     Entry.create(entry_params)
-    redirect_to root_path
+    balance = current_user.reload.balance
+    redirect_to root_path, notice: t(:entry_created, balance: balance)
   end
 
   def destroy
     Entry.find_by(id: params[:id]).try(:destroy)
-    redirect_to root_path, status: 303
+    balance = current_user.reload.balance
+    redirect_to root_path,
+                notice: t(:entry_destroyed, balance: balance),
+                status: 303
   end
 
   private

@@ -51,6 +51,8 @@ en:
     one: Entry
     other: Entries
   add_entry: Add Entry
+  entry_created: "New entry is created, your balance is %{balance}"
+  entry_destroyed: "Entry is deleted, your balance is %{balance}"
 
   income:
     one: Income
