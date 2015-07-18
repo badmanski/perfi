@@ -1,5 +1,8 @@
 .jumbotron.center-text
   %h1= t(:welcome)
   %p= t(:landing_lead_text)
-  =link_to t(:signup_today), new_user_registration_path,
-    class: 'btn jumbo-btn btn-success'
+  .col-md-4.col-md-offset-4
+    =link_to t(:sign_up), new_user_registration_path,
+             class: 'btn jumbo-btn btn-success btn-block'
+  %br
+  %br

@@ -2,7 +2,6 @@ en:
   sign_in: Sign in
   sign_out: Sign out
   sign_up: Sign up
-  signup_today: Sign up today!
   register: Register
   remember_me: Remember me
   edit: Edit
@@ -22,9 +21,9 @@ en:
   summary: Summary
   monthly_summary: 'Monthly summary'
   datetime: Datetime
-  finance_planner: Finance Planner
-  welcome: Welcome to Finance Planner!
-  landing_lead_text: "This is a simple finance planner. Here you can manage your daily incomes and outcomes, access history and have quick overview of your budget. Sign up for free account today and get your money flow under control!"
+  app_name: Perfi
+  welcome: Welcome to Perfi!
+  landing_lead_text: "Perfi is a simple personal finances tracker. Here you can manage your daily incomes and expenses, access history and have quick overview of your budget. Sign up for free account and get your money flow under control!"
   current_password_to_confirm_changes: we need your current password to confirm your changes
   forgot_password: Forgot your password?
   reset_password: Send me reset password instructions
